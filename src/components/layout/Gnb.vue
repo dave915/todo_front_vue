@@ -15,7 +15,7 @@
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top">
       <!-- Sidebar toggle button-->
-      <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button" >
+      <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button" @click="menuToggle">
         <span class="sr-only">Toggle navigation</span>
       </a>
       <!-- Navbar Right Menu -->
@@ -126,6 +126,7 @@
 
 <script>
   import constatns from '@/store/constants'
+  import {isMobile} from "../../utils/utils";
 
   export default {
     name: 'Gnb',
@@ -144,7 +145,8 @@
     },
     methods: {
       menuToggle() {
-        this.$store.dispatch(constatns.SIDEBAR_TOGGLE);
+        const isOpen = isMobile.any() ? true : $('body').attr('class').toString().indexOf('sidebar-collapse') > -1;
+        this.$store.dispatch(constatns.SIDEBAR_TOGGLE, isOpen);
       }
     }
   }
