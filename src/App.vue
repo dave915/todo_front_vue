@@ -3,8 +3,8 @@
     <div class="wrapper">
       <gnb></gnb>
       <Lnb></Lnb>
-      <va-content-wrap></va-content-wrap>
-      <footer class="main-footer">
+      <contents style="padding-bottom: 30px;"></contents>
+      <footer class="main-footer footer">
         fdsafdsadfsa
       </footer>
     </div>
@@ -14,7 +14,7 @@
 <script>
   import Gnb from './components/layout/Gnb.vue'
   import Lnb from './components/layout/Lnb.vue'
-  import VAContentWrap from './components/layout/ContentWrap.vue'
+  import Contents from './components/layout/Contents.vue'
 
 
   export default {
@@ -28,11 +28,14 @@
     components: {
       Gnb,
       Lnb,
-      'va-content-wrap': VAContentWrap,
+      Contents,
     },
 }
 </script>
 
 <style>
-
+  .footer {
+    position: fixed;
+    bottom: 0;
+  }
 </style>

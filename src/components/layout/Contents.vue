@@ -25,7 +25,7 @@
 
 <script>
 export default {
-  name: 'va-content-wrap',
+  name: 'Contents',
   created () {
 
   }
