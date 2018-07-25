@@ -18,19 +18,21 @@
 
 
   export default {
-  name: 'App',
-    data () {
-      return {
-      }
+    name: 'App',
+    data() {
+      return {}
     },
-    created () {
+    created() {
     },
     components: {
       Gnb,
       Lnb,
       Contents,
     },
-}
+    mounted() {
+      console.log(navigator.userAgent)
+    }
+  }
 </script>
 
 <style>

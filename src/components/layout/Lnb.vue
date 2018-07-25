@@ -1,7 +1,7 @@
 <template>
   <aside id="slider" class="main-sidebar">
-    <section class="sidebar" style="padding-bottom: 0">
-      <ul data-widget="tree" class="sidebar-menu" style="height: calc(100% - 284px); overflow-y: scroll;">
+    <section class="sidebar" style="padding-bottom: 0;">
+      <ul data-widget="tree" class="sidebar-menu scrollbar" style="height: calc(100% - 284px); overflow-y: scroll;">
         <slide-item
           v-for="(item,index) in slideMenuItems"
           :data="item"
@@ -86,7 +86,7 @@
     methods: {
       dayClicked(day) {
         if(this.seletedDay.end != null)
-          this.seletedDay = {start: null, end: null};
+          return this.seletedDay = {start: null, end: null};
 
         if(this.seletedDay.start === null)
           this.seletedDay.start = day.date;
@@ -157,5 +157,11 @@
     bottom: 0;
     width: 100%;
     text-align: center;
+  }
+  .scrollbar {
+    overflow: -moz-scrollbars-none;
+  }
+  ul::-webkit-scrollbar {
+    display: none;
   }
 </style>

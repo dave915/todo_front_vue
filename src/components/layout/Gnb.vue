@@ -1,7 +1,7 @@
 <template>
   <header class="main-header">
     <!-- Logo -->
-    <a href="/" class="logo">
+    <a href="/" class="logo" id="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini">
         <b>WDT</b>
@@ -145,7 +145,8 @@
     },
     methods: {
       menuToggle() {
-        const isOpen = isMobile.any() ? true : $('body').attr('class').toString().indexOf('sidebar-collapse') > -1;
+        const isOpen = isMobile.any() || $('#logo').width() > 250 ?
+          true : $('body').attr('class').toString().indexOf('sidebar-collapse') > -1;
         this.$store.dispatch(constatns.SIDEBAR_TOGGLE, isOpen);
       }
     }
