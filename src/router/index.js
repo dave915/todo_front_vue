@@ -14,12 +14,12 @@ export default new Router({
     {
       path: '/hello',
       name: 'Hello',
-      component: HelloWorld
+      component: Sample
     },
     {
       path: '/hello2',
       name: 'Hello2',
-      component: Sample
+      component: HelloWorld
     },
     {
       path: '/logback',
