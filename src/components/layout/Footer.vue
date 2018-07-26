@@ -1,7 +1,7 @@
 <template>
   <footer class="main-footer footer">
     <div class="pull-left">
-      <span style="font-size:24px;" @click="addItem"><i class="fa fa-plus-circle"></i></span>
+      <button class="form-control" style="border-radius: 50px" @click="addItem"><i class="fa fa-plus"></i></button>
     </div>
     <input class="form-control search" type="text" placeholder="Search">
   </footer>
