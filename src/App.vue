@@ -3,10 +3,8 @@
     <div class="wrapper">
       <gnb></gnb>
       <Lnb></Lnb>
-      <contents style="padding-bottom: 30px;"></contents>
-      <footer class="main-footer footer">
-        fdsafdsadfsa
-      </footer>
+      <Contents style="padding-bottom: 64px;"></Contents>
+      <Footer></Footer>
     </div>
   </div>
 </template>
@@ -15,6 +13,7 @@
   import Gnb from './components/layout/Gnb.vue'
   import Lnb from './components/layout/Lnb.vue'
   import Contents from './components/layout/Contents.vue'
+  import Footer from './components/layout/Footer'
 
 
   export default {
@@ -28,16 +27,12 @@
       Gnb,
       Lnb,
       Contents,
+      Footer
     },
     mounted() {
-      console.log(navigator.userAgent)
     }
   }
 </script>
 
 <style>
-  .footer {
-    position: fixed;
-    bottom: 0;
-  }
 </style>

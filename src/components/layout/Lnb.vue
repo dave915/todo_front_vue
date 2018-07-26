@@ -1,5 +1,5 @@
 <template>
-  <aside id="slider" class="main-sidebar">
+  <aside id="slider" :class="classObject">
     <section class="sidebar" style="padding-bottom: 0;">
       <ul data-widget="tree" class="sidebar-menu scrollbar" style="height: calc(100% - 284px); overflow-y: scroll;">
         <slide-item
@@ -43,6 +43,12 @@
     name: 'Lnb',
     computed: {
       ...mapState(['sidebarOpen']),
+      classObject() {
+        return {
+          'main-sidebar' : true,
+          'sidebar-close' : !this.sidebarOpen
+        }
+      },
       attrs() {
         return [
           {
@@ -77,7 +83,7 @@
         seletedDay: {
           start: null,
           end: null
-        },
+        }
       }
     },
     components: {
@@ -163,5 +169,8 @@
   }
   ul::-webkit-scrollbar {
     display: none;
+  }
+  .sidebar-close {
+    z-index: 900;
   }
 </style>
