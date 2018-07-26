@@ -35,8 +35,8 @@
 </template>
 
 <script>
-  import slideMenuItemList from '../../constants/slideMenuItems.js'
-  import SlideItem from '../SlideItem'
+  import slideMenuItemList from '../../../constants/slideMenuItems.js'
+  import SlideItem from '../../SlideItem'
   import {mapState} from 'vuex'
 
   export default {

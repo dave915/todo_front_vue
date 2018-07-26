@@ -649,7 +649,7 @@
 </template>
 
 <script>
-  import ContentTitle from './layout/ContentTitle'
+  import ContentTitle from './layout/components/ContentTitle'
 
   export default {
     name: 'HelloWorld',

@@ -70,52 +70,9 @@
               </li>
             </ul>
           </li>
-          <!-- User Account: style can be found in dropdown.less -->
-          <!--<li class="dropdown user user-menu">-->
-          <!--<a href="#" class="dropdown-toggle" data-toggle="dropdown">-->
-          <!--<img src="~admin-lte/dist/img/user2-160x160.jpg" class="user-image" alt="User Image">-->
-          <!--<span class="hidden-xs">{{ currentUser.name }}</span>-->
-          <!--</a>-->
-          <!--<ul class="dropdown-menu">-->
-          <!--&lt;!&ndash; User image &ndash;&gt;-->
-          <!--<li class="user-header">-->
-          <!--<img src="~admin-lte/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">-->
-
-          <!--<p>-->
-          <!--{{ currentUser.name }} - {{ currentUser.position }}-->
-          <!--<small>{{ currentUser.createdAt }}</small>-->
-          <!--</p>-->
-          <!--</li>-->
-          <!--&lt;!&ndash; Menu Body &ndash;&gt;-->
-          <!--<li class="user-body">-->
-          <!--<row>-->
-          <!--<div class="col-xs-4 text-center">-->
-          <!--<a href="#">Followers</a>-->
-          <!--</div>-->
-          <!--<div class="col-xs-4 text-center">-->
-          <!--<a href="#">Sales</a>-->
-          <!--</div>-->
-          <!--<div class="col-xs-4 text-center">-->
-          <!--<a href="#">Friends</a>-->
-          <!--</div>-->
-          <!--</row>-->
-          <!--&lt;!&ndash; /.row &ndash;&gt;-->
-          <!--</li>-->
-          <!--&lt;!&ndash; Menu Footer&ndash;&gt;-->
-          <!--<li class="user-footer">-->
-          <!--<div class="pull-left">-->
-          <!--<a href="#" class="btn btn-default btn-flat">Profile</a>-->
-          <!--</div>-->
-          <!--<div class="pull-right">-->
-          <!--<a href="#" class="btn btn-default btn-flat">Sign out</a>-->
-          <!--</div>-->
-          <!--</li>-->
-          <!--</ul>-->
-          <!--</li>-->
-          <!-- Control Sidebar Toggle Button -->
           <li>
-            <a href="#" data-toggle="control-sidebar">
-              <i class="fa fa-gears"></i>
+            <a data-toggle="control-sidebar" @click="logout">
+              <i class="fa fa-sign-out"></i>
             </a>
           </li>
         </ul>
@@ -126,7 +83,7 @@
 
 <script>
   import constatns from '@/store/constants'
-  import {isMobile} from "../../utils/utils";
+  import {isMobile} from "../../../utils/utils";
 
   export default {
     name: 'Gnb',
@@ -148,6 +105,9 @@
         const isOpen = isMobile.any() || $('#logo').width() > 250 ?
           true : $('body').attr('class').toString().indexOf('sidebar-collapse') > -1;
         this.$store.dispatch(constatns.SIDEBAR_TOGGLE, isOpen);
+      },
+      logout() {
+        this.$router.push({name: 'login'})
       }
     }
   }
