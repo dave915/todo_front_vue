@@ -4,8 +4,6 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import store from './store'
-import 'vue2-admin-lte/src/lib/css'
-import 'vue2-admin-lte/src/lib/script'
 import VCalendar from 'v-calendar';
 import 'v-calendar/lib/v-calendar.min.css';
 
