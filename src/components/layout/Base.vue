@@ -27,6 +27,11 @@
       Footer
     },
     mounted() {
+      // 빈페이지 다녀오고 트리메뉴가 동작 안하는 문제 때문에 임시로 넣음
+      $(document).ready(() => {
+        const trees = $('[data-widget="tree"]');
+        trees.tree();
+      });
     }
   }
 </script>

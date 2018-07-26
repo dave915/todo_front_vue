@@ -17,10 +17,9 @@
     "babel-runtime": "^6.26.0",
     "v-calendar": "^0.9.7",
     "vue": "^2.5.2",
-    "vue-mixins": "^0.3.6",
     "vue-router": "^3.0.1",
+    "vue2-admin-lte": "^0.4.3",
     "vuedraggable": "^2.16.0",
-    "vuejs-datepicker": "^1.5.2",
     "vuex": "^3.0.1"
   },
   "devDependencies": {
