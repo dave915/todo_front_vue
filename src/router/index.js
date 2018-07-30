@@ -4,6 +4,7 @@ import HelloWorld from '@/components/HelloWorld'
 import Today from '@/components/Today'
 import Login from '@/components/layout/Login'
 import Base from '@/components/layout/Base'
+import Register from '@/components/layout/Register'
 
 Vue.use(Router)
 
@@ -45,6 +46,11 @@ export default new Router({
       path: '/login',
       name: 'login',
       component: Login
+    },
+    {
+      path: '/register',
+      name: 'register',
+      component: Register
     },
   ],
   linkActiveClass: 'active'
