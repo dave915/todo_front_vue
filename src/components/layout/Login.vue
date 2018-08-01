@@ -26,9 +26,9 @@
             <!-- /.col -->
           </div>
         </form>
-        <a href="#">I forgot my password</a>
+        <a href="javascript:void(0)" @click="findPassword">I forgot my password</a>
         <br>
-        <a href="register.html" class="text-center">Register a new membership</a>
+        <router-link to="/register" class="text-center">Register a new membership</router-link>
 
       </div>
       <!-- /.login-box-body -->
@@ -41,6 +41,9 @@
     methods: {
       login() {
         this.$router.push({path: 'hello'});
+      },
+      findPassword() {
+        alert('비밀번호 찾기 준비중.')
       }
     }
   }

@@ -1,6 +1,6 @@
 <template>
   <router-link tag="li" v-if="router && router.name" :to="router">
-    <a href="#">
+    <a href="javascript:void(0)">
       <i :class="icon"></i> <span>{{ name }}</span>
       <span class="pull-right-container" v-show="badge">
         <small class="label pull-right" :class="[badge.type==='String'?'bg-green':'label-primary']">{{ badge.data }}</small>
@@ -9,7 +9,7 @@
   </router-link>
   <li :class="getType" v-else>
     {{ isHeader ? name : '' }}
-    <a href="#" v-if="!isHeader">
+    <a href="javascript:void(0)" v-if="!isHeader">
       <i :class="icon"></i> <span>{{ name }}</span>
       <span class="pull-right-container">
         <small v-if="badge && badge.data" class="label pull-right" :class="[badge.type==='String'?'bg-green':'label-primary']">{{ badge.data }}</small>
