@@ -1,7 +1,7 @@
 <template>
   <footer class="main-footer footer">
     <div class="pull-left">
-      <button class="form-control" style="border-radius: 50px" @click="addItem"><i class="fa fa-plus"></i></button>
+      <button class="form-control" style="border-radius: 50px" @click="addItem()"><i class="fa fa-plus"></i></button>
     </div>
     <input class="form-control search" type="text" placeholder="Search">
   </footer>
@@ -9,11 +9,13 @@
 
 <script>
   import constants from '@/store/constants'
+  import {mapState} from 'vuex'
   export default {
     name: "Footer",
     methods: {
       addItem() {
-        this.$store.dispatch(constants.ADD_TODO, {title: 'Design a nice theme 1111111'});
+
+        this.$store.dispatch(constants.SHOW_MODAL, true)
       }
     },
   }

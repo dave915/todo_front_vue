@@ -15,5 +15,8 @@ export default {
   },
   [constants.DRAG_ITEM]: (state, payload) => {
     state.itemList = payload
+  },
+  [constants.SHOW_MODAL]: (state, payload) => {
+    state.showModal = payload
   }
 }

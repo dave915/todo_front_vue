@@ -11,5 +11,8 @@ export default {
   },
   [constants.DRAG_ITEM]: (store, payload) => {
     store.commit(constants.DRAG_ITEM, payload);
+  },
+  [constants.SHOW_MODAL]: (store, payload) => {
+    store.commit(constants.SHOW_MODAL, payload);
   }
 }
