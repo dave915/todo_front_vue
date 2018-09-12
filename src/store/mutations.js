@@ -18,5 +18,18 @@ export default {
   },
   [constants.SHOW_MODAL]: (state, payload) => {
     state.showModal = payload
-  }
+  },
+  [constants.AUTH_LOGIN]: (state, payload) => {
+    state.auth = payload
+  },
+  [constants.AUTH_LOGOUT]: (state, payload) => {
+    state.auth = {
+      idx: '',
+      userName: '',
+      email: ''
+    }
+  },
+  [constants.AUTH_USERINFO]: (state, payload) => {
+    state.auth = payload
+  },
 }

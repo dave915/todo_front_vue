@@ -107,8 +107,11 @@
         this.$store.dispatch(constatns.SIDEBAR_TOGGLE, isOpen);
       },
       logout() {
-        this.$router.push({name: 'login'})
+        this.$store.dispatch(constatns.AUTH_LOGOUT)
       }
+    },
+    mounted() {
+      this.$store.dispatch(constatns.AUTH_USERINFO)
     }
   }
 

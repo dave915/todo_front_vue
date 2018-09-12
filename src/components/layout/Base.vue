@@ -7,7 +7,7 @@
     <TodoWrite v-if="showModal"  @close="closeModal()" @add="addItem()">
       <h3 slot="header">항목 추가</h3>
     </TodoWrite>
-    <Footer></Footer>
+    <Footer/>
   </div>
 </template>
 

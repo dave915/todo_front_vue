@@ -1,4 +1,9 @@
 export default {
+  auth: {
+    idx: '',
+    userName: '',
+    email: ''
+  },
   sidebarOpen: true,
   itemList: [
     {title: 'Design a nice theme', status: false},
