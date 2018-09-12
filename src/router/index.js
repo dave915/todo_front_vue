@@ -12,6 +12,7 @@ export default new Router({
   routes: [
     {
       path: '/',
+      redirect: '/hello',
       name: 'index',
       component: Base,
       children: [

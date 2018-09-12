@@ -1,7 +1,7 @@
 <template>
   <footer class="main-footer footer">
     <div class="pull-left">
-      <button class="form-control" style="border-radius: 50px" @click="addItem()"><i class="fa fa-plus"></i></button>
+      <button class="form-control" style="border-radius: 50px" @click="showAddItemModal()"><i class="fa fa-plus"></i></button>
     </div>
     <input class="form-control search" type="text" placeholder="Search">
   </footer>
@@ -13,9 +13,19 @@
   export default {
     name: "Footer",
     methods: {
-      addItem() {
-
-        this.$store.dispatch(constants.SHOW_MODAL, true)
+      showAddItemModal() {
+        const modalInfo = {
+          isShow: true,
+          title: '항목 추가',
+          placeholder: '항목명',
+          modalName: 'addModal',
+          onConfirm: this.addItem
+        };
+        this.$store.dispatch(constants.SHOW_MODAL, modalInfo)
+      },
+      addItem(title) {
+        this.$store.dispatch(constants.ADD_TODO, {title});
+        this.$store.dispatch(constants.INIT_MODAL)
       }
     },
   }

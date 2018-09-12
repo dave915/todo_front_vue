@@ -14,5 +14,13 @@ export default {
     userInfo() {
       return axios.get('/api/userInfo');
     },
+  },
+  group: {
+    addGroup(payload) {
+      return axios.post('/api/group', payload);
+    },
+    getGroupList(payload) {
+      return axios.get('/api/group');
+    }
   }
 }

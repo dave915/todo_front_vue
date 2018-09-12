@@ -3,29 +3,7 @@
     <div class="modal-mask" id="modal">
       <div class="modal-wrapper">
         <div class="modal-container">
-
-          <div class="modal-header">
-            <slot name="header">
-              항목 추가
-            </slot>
-          </div>
-
-          <div class="modal-body">
-            <slot name="body">
-              <input type="text" placeholder="항목명" class="form-control">
-            </slot>
-          </div>
-
-          <div class="modal-footer">
-            <slot name="footer">
-              <button class="modal-default-button" @click="$emit('close')">
-                취소
-              </button>
-              <button class="modal-default-button" @click="$emit('add')">
-                OK
-              </button>
-            </slot>
-          </div>
+          <add-modal v-if="modalInfo.modalName === 'addModal'" :modalInfo="modalInfo"/>
         </div>
       </div>
     </div>
@@ -34,8 +12,11 @@
 
 <script>
   import constants from '@/store/constants'
+  import AddModal from "./AddModal";
   export default {
-    name: "TodoWrite",
+    name: "BaseModal",
+    components: {AddModal},
+    props: ['modalInfo'],
     data() {
       return {
 
@@ -45,15 +26,6 @@
 
     },
     computed: {
-      showModal: {
-        get() {
-          return this.$store.state.showModal
-        },
-        set(value) {
-          this.$store.commit(constants.showModal, value)
-        }
-      }
-
     },
 
   }
@@ -100,8 +72,6 @@
   .modal-default-button {
     float: right;
   }
-
-
 
   .modal-enter {
     opacity: 0;

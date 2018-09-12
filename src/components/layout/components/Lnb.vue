@@ -38,11 +38,12 @@
   import slideMenuItemList from '../../../constants/slideMenuItems.js'
   import SlideItem from '../../SlideItem'
   import {mapState} from 'vuex'
+  import constants from "../../../store/constants";
 
   export default {
     name: 'Lnb',
     computed: {
-      ...mapState(['sidebarOpen']),
+      ...mapState(['sidebarOpen', 'groupList']),
       classObject() {
         return {
           'main-sidebar' : true,
@@ -77,6 +78,26 @@
     created() {
 
     },
+    watch: {
+      groupList() {
+        const onlyMultiGroup = this.groupList.filter(g => !g.isDefaultGroup);
+        let groupItem = {
+          type: 'item',
+          icon: 'fa fa-circle-o',
+          name: '헬로화면',
+          router: {
+            name: 'group2'
+          }
+        };
+
+        this.slideMenuItems.filter(i => {
+          if (i.name === 'Group') {
+            i.items = [];
+            onlyMultiGroup.forEach(g => i.items.push({...groupItem, name: g.name}))
+          }
+        })
+      }
+    },
     data() {
       return {
         slideMenuItems: slideMenuItemList,
@@ -99,6 +120,9 @@
         else
           this.seletedDay.end = day.date;
       }
+    },
+    mounted() {
+      this.$store.dispatch(constants.GROUP_LIST);
     }
   }
 

@@ -46,24 +46,7 @@ module.exports = [
     type: 'tree',
     icon: 'fa fa-dashboard',
     name: 'Group',
-    items: [
-      {
-        type: 'item',
-        icon: 'fa fa-circle-o',
-        name: '헬로화면',
-        router: {
-          name: 'group2'
-        }
-      },
-      {
-        type: 'item',
-        icon: 'fa fa-circle-o',
-        name: '헬로화면2',
-        router: {
-          name: 'group1'
-        }
-      }
-    ]
+    items: []
   },
   {
     icon: 'fa fa-dashboard',

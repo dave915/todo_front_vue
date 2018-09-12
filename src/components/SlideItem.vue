@@ -12,8 +12,8 @@
     <a href="javascript:void(0)" v-if="!isHeader">
       <i :class="icon"></i> <span>{{ name }}</span>
       <span class="pull-right-container">
-        <small v-if="badge && badge.data" class="label pull-right" :class="[badge.type==='String'?'bg-green':'label-primary']">{{ badge.data }}</small>
-        <i v-else class="fa fa-angle-left pull-right"></i>
+        <i v-if="items.length > 0" class="fa fa-angle-left pull-right"></i>
+        <i v-if="name === 'Group'" class="fa fa-plus-circle pull-right" style="margin-right: 10px;" @click.stop="showAddItemModal"></i>
       </span>
     </a>
     <ul class="treeview-menu" v-if="items.length > 0">
@@ -32,6 +32,8 @@
 </template>
 
 <script>
+  import constants from "../store/constants";
+
   export default {
     name: 'SlideItem',
     props: {
@@ -84,6 +86,23 @@
           return 'header'
         }
         return this.type === 'item' ? '' : 'treeview'
+      }
+    },
+    methods: {
+      showAddItemModal() {
+        const modalInfo = {
+          isShow: true,
+          title: '그룹 추가',
+          placeholder: '그룹명',
+          modalName: 'addModal',
+          onConfirm: this.addGroup
+        };
+        this.$store.dispatch(constants.SHOW_MODAL, modalInfo);
+      },
+      addGroup(name) {
+        this.$store.dispatch(constants.GROUP_ADD, {name})
+          .then(() => this.$store.dispatch(constants.GROUP_LIST));
+        this.$store.dispatch(constants.INIT_MODAL);
       }
     }
   }

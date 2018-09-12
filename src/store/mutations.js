@@ -17,7 +17,16 @@ export default {
     state.itemList = payload
   },
   [constants.SHOW_MODAL]: (state, payload) => {
-    state.showModal = payload
+    state.modalInfo = payload
+  },
+  [constants.INIT_MODAL]: (state) => {
+    state.modalInfo = {
+      isShow: false,
+      title: '',
+      placeholder: '',
+      modalName: '',
+      onConfirm: ''
+    }
   },
   [constants.AUTH_LOGIN]: (state, payload) => {
     state.auth = payload
@@ -31,5 +40,8 @@ export default {
   },
   [constants.AUTH_USERINFO]: (state, payload) => {
     state.auth = payload
+  },
+  [constants.GROUP_LIST]: (state, payload) => {
+    state.groupList = payload
   },
 }

@@ -18,6 +18,9 @@ export default {
   [constants.SHOW_MODAL]: (store, payload) => {
     store.commit(constants.SHOW_MODAL, payload);
   },
+  [constants.INIT_MODAL]: (store) => {
+    store.commit(constants.INIT_MODAL);
+  },
   [constants.AUTH_SIGNIN]: (state, payload) => {
     return api.auth.signIn(payload)
       .then((res) => {
@@ -46,6 +49,17 @@ export default {
     return api.auth.userInfo(payload)
       .then((res) => {
         store.commit(constants.AUTH_USERINFO, res.data);
+      });
+  },
+  [constants.GROUP_ADD]: (store, payload) => {
+    return api.group.addGroup(payload)
+      .then((res) => {
+      });
+  },
+  [constants.GROUP_LIST]: (store, payload) => {
+    return api.group.getGroupList(payload)
+      .then((res) => {
+        store.commit(constants.GROUP_LIST, res.data);
       });
   },
 }
