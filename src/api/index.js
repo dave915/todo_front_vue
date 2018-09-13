@@ -1,4 +1,19 @@
 import axios from 'axios';
+import router from '../router';
+
+axios.interceptors.response.use(function (response) {
+  // Do something with response data
+  return response;
+}, function (error) {
+  if(isAuthError(error.response.status))
+    router.push({path: 'login'});
+
+  return Promise.reject(error);
+});
+
+const isAuthError = (status) => {
+  return Math.floor(status / 100) === 4
+};
 
 export default {
   auth: {

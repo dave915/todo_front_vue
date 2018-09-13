@@ -19,4 +19,16 @@ new Vue({
   store,
   components: { App },
   template: '<App/>'
-})
+});
+
+router.beforeEach((to, from, next) => {
+  if (!passAuthCheckPath(to) && store.state.auth.idx === '')
+    next({path: 'login'});
+  else
+    next();
+});
+
+const passAuthCheckPath = (router) => {
+  const path = router.path;
+  return path === '/login' || path === '/register'
+};
