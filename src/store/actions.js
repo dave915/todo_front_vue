@@ -6,12 +6,6 @@ export default {
   [constants.SIDEBAR_TOGGLE]: (store, payload) => {
     store.commit(constants.SIDEBAR_TOGGLE, payload);
   },
-  [constants.ADD_TODO]: (store, payload) => {
-    store.commit(constants.ADD_TODO, payload);
-  },
-  [constants.DELETE_TODO]: (store, payload) => {
-    store.commit(constants.DELETE_TODO, payload);
-  },
   [constants.DRAG_ITEM]: (store, payload) => {
     store.commit(constants.DRAG_ITEM, payload);
   },
@@ -60,6 +54,22 @@ export default {
     return api.group.getGroupList(payload)
       .then((res) => {
         store.commit(constants.GROUP_LIST, res.data);
+      });
+  },
+  [constants.ITEM_LIST]: (store, payload) => {
+    return api.item.getItemList(payload)
+      .then((res) => {
+        store.commit(constants.ITEM_LIST, res.data);
+      });
+  },
+  [constants.ITEM_ADD]: (store, payload) => {
+    return api.item.addItem(payload)
+      .then((res) => {
+      });
+  },
+  [constants.ITEM_DELETE]: (store, payload) => {
+    return api.item.deleteItem(payload)
+      .then((res) => {
       });
   },
 }

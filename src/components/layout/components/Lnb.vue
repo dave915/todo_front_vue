@@ -80,11 +80,9 @@
     },
     watch: {
       groupList() {
-        const onlyMultiGroup = this.groupList.filter(g => !g.isDefaultGroup);
         let groupItem = {
           type: 'item',
           icon: 'fa fa-circle-o',
-          name: '헬로화면',
           router: {
             name: 'group2'
           }
@@ -93,7 +91,7 @@
         this.slideMenuItems.filter(i => {
           if (i.name === 'Group') {
             i.items = [];
-            onlyMultiGroup.forEach(g => i.items.push({...groupItem, name: g.name}))
+            this.groupList.forEach(g => i.items.push({...groupItem, name: g.name}))
           }
         })
       }

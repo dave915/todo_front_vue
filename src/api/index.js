@@ -12,7 +12,7 @@ axios.interceptors.response.use(function (response) {
 });
 
 const isAuthError = (status) => {
-  return Math.floor(status / 100) === 4
+  return status === 401 || status === 403
 };
 
 export default {
@@ -37,5 +37,16 @@ export default {
     getGroupList(payload) {
       return axios.get('/api/group');
     }
+  },
+  item: {
+    getItemList(payload) {
+      return axios.get(`/api/item/group/${payload}`);
+    },
+    addItem(payload) {
+      return axios.post('/api/item', payload);
+    },
+    deleteItem(payload) {
+      return axios.delete(`/api/item/${payload}`);
+    },
   }
 }

@@ -4,7 +4,7 @@
     <section class="content">
       <draggable v-model="itemList" class="todo-list" :options="{handle:'.handle'}">
         <li v-for="(item, index) in itemList" class="item">
-          <todo-item :item="item" :index="index"></todo-item>
+          <todo-item :item="item" :index="index" :defaultGroup="defaultGroup"></todo-item>
         </li>
       </draggable>
     </section>
@@ -17,6 +17,7 @@
   import constants from '@/store/constants'
   import ContentTitle from './layout/components/ContentTitle'
   import TodoItem from "./TodoItem";
+  import {mapState} from 'vuex'
 
   export default {
     name: "Sample",
@@ -28,7 +29,14 @@
     data() {
       return {};
     },
+    watch: {
+      defaultGroup() {
+        if(this.defaultGroup.idx !== '')
+          this.$store.dispatch(constants.ITEM_LIST, this.defaultGroup.idx);
+      }
+    },
     computed: {
+      ...mapState(['defaultGroup']),
       itemList: {
         get() {
           return this.$store.state.itemList
@@ -37,8 +45,6 @@
           this.$store.commit(constants.DRAG_ITEM, value)
         }
       }
-    },
-    mounted() {
     }
   }
 </script>

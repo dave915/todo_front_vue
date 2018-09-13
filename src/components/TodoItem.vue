@@ -10,10 +10,10 @@
     <!-- todo text -->
     <span class="text">{{item.title}}</span>
     <!-- Emphasis label -->
-    <small class="label label-danger">
-      <i class="fa fa-clock-o"></i>
-      2 mins
-    </small>
+    <!--<small class="label label-danger">-->
+      <!--<i class="fa fa-clock-o"></i>-->
+      <!--2 mins-->
+    <!--</small>-->
     <!-- General tools such as edit or delete-->
     <div class="tools">
       <i class="fa fa-edit"></i>
@@ -26,10 +26,11 @@
   import constants from '@/store/constants'
   export default {
     name: "TodoItem",
-    props: ['item', 'index'],
+    props: ['item', 'index', 'defaultGroup'],
     methods: {
       deleteItem(index) {
-        this.$store.dispatch(constants.DELETE_TODO, index);
+        this.$store.dispatch(constants.ITEM_DELETE, this.item.idx)
+          .then(() => this.$store.dispatch(constants.ITEM_LIST, this.defaultGroup.idx));
       }
     },
   }

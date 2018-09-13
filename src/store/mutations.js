@@ -42,6 +42,10 @@ export default {
     state.auth = payload
   },
   [constants.GROUP_LIST]: (state, payload) => {
-    state.groupList = payload
+    state.groupList = payload.filter(g => !g.isDefaultGroup);
+    state.defaultGroup = payload.filter(g => g.isDefaultGroup)[0];
+  },
+  [constants.ITEM_LIST]: (state, payload) => {
+    state.itemList = payload
   },
 }

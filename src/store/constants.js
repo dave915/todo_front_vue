@@ -1,6 +1,5 @@
 export default {
   SIDEBAR_TOGGLE: 'sidebarToggle',
-  ADD_TODO: 'addTodo',
   DELETE_TODO: 'deleteTodo',
   DRAG_ITEM: 'dragItem',
   SHOW_MODAL: 'showModal',
@@ -10,5 +9,8 @@ export default {
   AUTH_LOGOUT: 'auth/logout',
   AUTH_USERINFO: 'auth/userInfo',
   GROUP_ADD: 'group/add',
-  GROUP_LIST: 'group/list'
+  GROUP_LIST: 'group/list',
+  ITEM_LIST: 'item/list',
+  ITEM_ADD: 'item/add',
+  ITEM_DELETE: 'item/delete',
 }
