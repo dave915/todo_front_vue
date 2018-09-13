@@ -12,11 +12,11 @@
          </select>
        </div>
        <div class="col-sm-9">
-         <input type="text" :placeholder="modalInfo.placeholder" class="form-control col-sm-9" v-model="input" @keydown.enter="confirmBtnClicked">
+         <input type="text" :placeholder="modalInfo.placeholder" class="form-control col-sm-9" v-model="input">
        </div>
      </div>
      <div v-else class="row">
-       <input type="text" :placeholder="modalInfo.placeholder" class="form-control col-sm-12" v-model="input" @keydown.enter="confirmBtnClicked">
+       <input type="text" :placeholder="modalInfo.placeholder" class="form-control col-sm-12" v-model="input">
      </div>
    </div>
    <div class="modal-footer">
@@ -57,8 +57,7 @@
 
         if(this.modalInfo.modalType === 'item') {
           this.modalInfo.onConfirm(this.groupSelect, this.input.trim())
-        }
-        else {
+        } else {
           this.modalInfo.onConfirm(this.input.trim())
         }
       }

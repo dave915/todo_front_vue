@@ -7,6 +7,9 @@
           <todo-item :item="item" :index="index" :defaultGroup="defaultGroup"></todo-item>
         </li>
       </draggable>
+      <div v-if="itemList.length < 1" style="text-align: center">
+        일정이 없습니다.
+      </div>
     </section>
   </div>
 </template>
