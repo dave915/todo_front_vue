@@ -40,7 +40,7 @@ export default {
   },
   item: {
     getItemList(payload) {
-      return axios.get(`/api/item/group/${payload}`);
+      return axios.get('/api/item', {params: payload});
     },
     addItem(payload) {
       return axios.post('/api/item', payload);

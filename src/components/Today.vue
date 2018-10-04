@@ -21,6 +21,7 @@
   import ContentTitle from './layout/components/ContentTitle'
   import TodoItem from "./TodoItem";
   import {mapState} from 'vuex'
+  import moment from 'moment'
 
   export default {
     name: "Sample",
@@ -35,7 +36,7 @@
     watch: {
       defaultGroup() {
         if(this.defaultGroup.idx !== '')
-          this.$store.dispatch(constants.ITEM_LIST, this.defaultGroup.idx);
+          this.$store.dispatch(constants.ITEM_LIST, {groupIdx: this.defaultGroup.idx});
       }
     },
     computed: {

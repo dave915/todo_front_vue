@@ -15,7 +15,7 @@
   import Contents from './components/Contents.vue'
   import Footer from './components/Footer'
   import {mapState} from 'vuex'
-  import BaseModal from "./components/modal/BaseModal";
+  import BaseModal from "../modal/BaseModal";
 
   export default {
     name: "Base",
