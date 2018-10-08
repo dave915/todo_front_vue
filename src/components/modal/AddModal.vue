@@ -11,12 +11,12 @@
            <option v-for="group in groupList" :value="group.idx">{{group.name}}</option>
          </select>
        </div>
-       <div class="col-sm-9">
-         <input type="text" :placeholder="modalInfo.placeholder" class="form-control col-sm-9" v-model="input">
+       <div class="col-lg-9">
+         <input type="text" :placeholder="modalInfo.placeholder" class="form-control col-lg-9" v-model="input">
        </div>
      </div>
      <div v-else class="row">
-       <input type="text" :placeholder="modalInfo.placeholder" class="form-control col-sm-12" v-model="input">
+       <input type="text" :placeholder="modalInfo.placeholder" class="form-control col-lg-12" v-model="input">
      </div>
    </div>
    <div class="modal-footer">

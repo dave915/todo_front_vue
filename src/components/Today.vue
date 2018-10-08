@@ -2,7 +2,7 @@
   <div>
     <content-title title="Today" subTitle="Todo's Todo"></content-title>
     <section class="content">
-      <draggable v-model="itemList" class="todo-list" :options="{handle:'.handle'}">
+      <draggable v-model="itemList" class="todo-list" :options="{handle:'.item'}">
         <li v-for="(item, index) in itemList" class="item">
           <todo-item :item="item" :index="index" :defaultGroup="defaultGroup"></todo-item>
         </li>

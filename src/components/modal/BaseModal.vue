@@ -4,6 +4,7 @@
       <div class="modal-wrapper">
         <div class="modal-container">
           <add-modal v-if="modalInfo.modalName === 'addModal'" :modalInfo="modalInfo"/>
+          <group-info-modal :modalInfo="modalInfo"/>
         </div>
       </div>
     </div>
@@ -11,11 +12,11 @@
 </template>
 
 <script>
-  import constants from '@/store/constants'
   import AddModal from "./AddModal";
+  import GroupInfoModal from "./GroupInfoModal";
   export default {
     name: "BaseModal",
-    components: {AddModal},
+    components: {AddModal, GroupInfoModal},
     props: ['modalInfo'],
     data() {
       return {

@@ -12,7 +12,8 @@ export default {
     placeholder: '',
     modalName: '',
     modalType: '',
-    onConfirm: ''
+    onConfirm: '',
+    data: {}
   },
   defaultGroup: {
     idx: 0,

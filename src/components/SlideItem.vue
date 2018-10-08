@@ -13,18 +13,22 @@
       <i :class="icon"></i> <span>{{ name }}</span>
       <span class="pull-right-container">
         <i v-if="items.length > 0" class="fa fa-angle-left pull-right"></i>
-        <i v-if="name === 'Group'" class="fa fa-plus-circle pull-right" style="margin-right: 10px;" @click.stop="showAddItemModal"></i>
+        <i v-if="name === 'Group'" class="fa fa-plus-circle pull-right btn-icon" style="margin-right: 10px;" @click.stop="showAddItemModal"></i>
       </span>
     </a>
     <ul class="treeview-menu" v-if="items.length > 0">
       <router-link tag="li" v-for="(item,index) in items" :data="item" :key="index" :to="item.router" v-if="item.router && item.router.name">
         <a>
-          <i :class="item.icon"> {{ item.name }}</i>
+          <i :class="item.icon"> {{ subMenuFormater(item.name) }}</i>
+          <span class="pull-right-container" v-if="name === 'Group'">
+            <i class="fa fa-trash pull-right btn-icon" @click.stop="groupDelete"></i>
+            <i class="fa fa-users pull-right btn-icon" @click.stop="groupInfoModal(item.groupInfo)"></i>
+          </span>
         </a>
       </router-link>
       <li v-else>
         <a>
-          <i :class="item.icon"> {{ item.name }}</i>
+          <i :class="item.icon"> {{ subMenuFormater(item.name) }}</i>
         </a>
       </li>
     </ul>
@@ -103,7 +107,43 @@
         this.$store.dispatch(constants.GROUP_ADD, {name})
           .then(() => this.$store.dispatch(constants.GROUP_LIST));
         this.$store.dispatch(constants.INIT_MODAL);
+      },
+      subMenuFormater(name) {
+        if(name.length < 10)
+          return name;
+        else
+          return name.substring(0, 10).concat('...');
+      },
+      groupInfoModal(groupInfo) {
+        const modalInfo = {
+          isShow: true,
+          title: '그룹 유저 정보',
+          placeholder: '유저 이메일 또는 아이디',
+          modalName: 'groupInfoModal',
+          data: {
+            groupInfo,
+          }
+        };
+        this.$store.dispatch(constants.SHOW_MODAL, modalInfo);
+      },
+      groupDelete() {
+        alert('그룹 삭제');
       }
     }
   }
 </script>
+
+<style scoped>
+  .btn-icon {
+    color: #8aa4af;
+    margin-right: 5px;
+  }
+  .btn-icon:hover {
+    color: #ffffff;
+    margin-right: 5px;
+  }
+  .btn-icon:active {
+    color: #ffffff;
+    margin-right: 5px;
+  }
+</style>

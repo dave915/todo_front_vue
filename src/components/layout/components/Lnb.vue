@@ -91,7 +91,7 @@
         this.slideMenuItems.filter(i => {
           if (i.name === 'Group') {
             i.items = [];
-            this.groupList.forEach(g => i.items.push({...groupItem, name: g.name}))
+            this.groupList.forEach(g => i.items.push({...groupItem, name: g.name, groupInfo: g}))
           }
         })
       }
