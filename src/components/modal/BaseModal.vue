@@ -4,7 +4,7 @@
       <div class="modal-wrapper">
         <div class="modal-container">
           <add-modal v-if="modalInfo.modalName === 'addModal'" :modalInfo="modalInfo"/>
-          <group-info-modal :modalInfo="modalInfo"/>
+          <group-info-modal v-else-if="modalInfo.modalName === 'groupInfoModal'" :modalInfo="modalInfo"/>
         </div>
       </div>
     </div>

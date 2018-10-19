@@ -19,5 +19,6 @@ export default {
     idx: 0,
     title: ''
   },
-  groupList: []
+  groupList: [],
+  groupJoinUserList: []
 }

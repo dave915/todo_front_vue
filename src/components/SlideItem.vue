@@ -21,7 +21,7 @@
         <a>
           <i :class="item.icon"> {{ subMenuFormater(item.name) }}</i>
           <span class="pull-right-container" v-if="name === 'Group'">
-            <i class="fa fa-trash pull-right btn-icon" @click.stop="groupDelete"></i>
+            <i class="fa fa-trash pull-right btn-icon" @click.stop="groupDelete(item)"></i>
             <i class="fa fa-users pull-right btn-icon" @click.stop="groupInfoModal(item.groupInfo)"></i>
           </span>
         </a>
@@ -121,13 +121,15 @@
           placeholder: '유저 이메일 또는 아이디',
           modalName: 'groupInfoModal',
           data: {
-            groupInfo,
+            groupIdx: groupInfo.idx,
           }
         };
         this.$store.dispatch(constants.SHOW_MODAL, modalInfo);
       },
-      groupDelete() {
-        alert('그룹 삭제');
+      groupDelete(group) {
+        if(confirm(`"${group.name}" 그룹을 정말 떠니시겠습니까?`))
+          this.$store.dispatch(constants.GROUP_DELETE, group.idx)
+            .then(result => this.$store.dispatch(constants.GROUP_LIST));
       }
     }
   }

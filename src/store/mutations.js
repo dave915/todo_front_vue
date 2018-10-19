@@ -45,6 +45,14 @@ export default {
     state.groupList = payload.filter(g => !g.isDefaultGroup);
     state.defaultGroup = payload.filter(g => g.isDefaultGroup)[0];
   },
+  [constants.GROUP_USER_LIST]: (state, payload) => {
+    const userList = [];
+    userList.push(state.auth);
+    state.groupJoinUserList = userList.concat(payload.filter(u => u.idx !== state.auth.idx));
+  },
+  [constants.GROUP_USER_LIST_RESET]: (state, payload) => {
+    state.groupJoinUserList = [];
+  },
   [constants.ITEM_LIST]: (state, payload) => {
     state.itemList = payload
   },

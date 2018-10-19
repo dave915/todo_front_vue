@@ -30,12 +30,35 @@ export default {
       return axios.get('/api/userInfo');
     },
   },
+  user: {
+    searchUsers(payload) {
+      return axios.get('/api/users', {params: {keyword: payload}})
+    }
+  },
   group: {
     addGroup(payload) {
       return axios.post('/api/group', payload);
     },
+    updateGroup(payload) {
+      return axios.put('/api/group', payload);
+    },
     getGroupList(payload) {
       return axios.get('/api/group');
+    },
+    deleteGroup(payload) {
+      return axios.delete(`/api/group/leave/${payload}`);
+    },
+    getGroupJoinUserList(payload) {
+      return axios.get(`/api/group/${payload}/users`);
+    },
+    inviteUser(payload) {
+      return axios.post(`/api/group/invite/${payload.groupIdx}/${payload.userIdx}`);
+    },
+    passOwner(payload) {
+      return axios.put(`/api/group/pass/${payload.groupIdx}/${payload.userIdx}`);
+    },
+    banishUser(payload) {
+      return axios.delete(`/api/group/banish/${payload.groupIdx}/${payload.userIdx}`);
     }
   },
   item: {
