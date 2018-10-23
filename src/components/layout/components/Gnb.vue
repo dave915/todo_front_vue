@@ -109,9 +109,6 @@
       logout() {
         this.$store.dispatch(constatns.AUTH_LOGOUT)
       }
-    },
-    mounted() {
-      this.$store.dispatch(constatns.AUTH_USERINFO)
     }
   }
 

@@ -128,8 +128,8 @@
       },
       groupDelete(group) {
         if(confirm(`"${group.name}" 그룹을 정말 떠니시겠습니까?`))
-          this.$store.dispatch(constants.GROUP_DELETE, group.idx)
-            .then(result => this.$store.dispatch(constants.GROUP_LIST));
+          this.$store.dispatch(constants.GROUP_DELETE, group.groupInfo.idx)
+            .then(() => this.$store.dispatch(constants.GROUP_LIST));
       }
     }
   }

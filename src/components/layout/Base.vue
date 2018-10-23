@@ -40,8 +40,6 @@
         const trees = $('[data-widget="tree"]');
         trees.tree();
       });
-
-
     }
   }
 </script>
