@@ -6,6 +6,7 @@
     </Contents>
     <base-modal v-if="modalInfo.isShow" :modalInfo="modalInfo"/>
     <Footer/>
+    <ItemSideBar/>
   </div>
 </template>
 
@@ -16,6 +17,7 @@
   import Footer from './components/Footer'
   import {mapState} from 'vuex'
   import BaseModal from "../modal/BaseModal";
+  import ItemSideBar from "./components/ItemSideBar";
 
   export default {
     name: "Base",
@@ -28,6 +30,7 @@
       ...mapState(['modalInfo'])
     },
     components: {
+      ItemSideBar,
       BaseModal,
       Gnb,
       Lnb,

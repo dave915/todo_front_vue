@@ -4,6 +4,7 @@ export default {
     userName: '',
     email: ''
   },
+  itemSidebarOpen: false,
   sidebarOpen: true,
   itemList: [],
   modalInfo: {
@@ -19,6 +20,7 @@ export default {
     idx: 0,
     title: ''
   },
+  currentItem: {},
   groupList: [],
   groupJoinUserList: []
 }

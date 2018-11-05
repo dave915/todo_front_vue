@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div @click="openDetail">
     <!-- drag handle -->
     <span class="handle">
       <i class="fa fa-ellipsis-v"></i>
@@ -16,8 +16,7 @@
     <!--</small>-->
     <!-- General tools such as edit or delete-->
     <div class="tools">
-      <i class="fa fa-edit"></i>
-      <i class="fa fa-trash-o" @click="deleteItem(index)"></i>
+      <i class="fa fa-trash-o" @click.stop="deleteItem(index)"></i>
     </div>
   </div>
 </template>
@@ -31,6 +30,9 @@
       deleteItem(index) {
         this.$store.dispatch(constants.ITEM_DELETE, this.item.idx)
           .then(() => this.$store.dispatch(constants.ITEM_LIST, this.defaultGroup.idx));
+      },
+      openDetail() {
+        this.$store.dispatch(constants.ITEM_SIDEBAR_OPEN, this.item)
       }
     },
   }

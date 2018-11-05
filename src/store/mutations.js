@@ -7,6 +7,14 @@ export default {
     else
       state.sidebarOpen = payload;
   },
+  [constants.ITEM_SIDEBAR_OPEN]: (state, payload) => {
+    state.currentItem = payload;
+    state.itemSidebarOpen = true;
+  },
+  [constants.ITEM_SIDEBAR_CLOSE]: (state) => {
+    state.currentItem = {};
+    state.itemSidebarOpen = false;
+  },
   [constants.ADD_TODO]: (state, payload) => {
     state.itemList.push(payload)
   },

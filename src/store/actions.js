@@ -6,6 +6,12 @@ export default {
   [constants.SIDEBAR_TOGGLE]: (store, payload) => {
     store.commit(constants.SIDEBAR_TOGGLE, payload);
   },
+  [constants.ITEM_SIDEBAR_OPEN]: (store, payload) => {
+    store.commit(constants.ITEM_SIDEBAR_OPEN, payload);
+  },
+  [constants.ITEM_SIDEBAR_CLOSE]: (store, payload) => {
+    store.commit(constants.ITEM_SIDEBAR_CLOSE, payload);
+  },
   [constants.DRAG_ITEM]: (store, payload) => {
     store.commit(constants.DRAG_ITEM, payload);
   },

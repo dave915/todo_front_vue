@@ -1,5 +1,7 @@
 export default {
   SIDEBAR_TOGGLE: 'sidebarToggle',
+  ITEM_SIDEBAR_OPEN: 'itemSidebar/open',
+  ITEM_SIDEBAR_CLOSE: 'itemSidebar/close',
   DELETE_TODO: 'deleteTodo',
   DRAG_ITEM: 'dragItem',
   SHOW_MODAL: 'showModal',
