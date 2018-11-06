@@ -1,7 +1,7 @@
 <template>
   <aside id="slider" :class="classObject">
-    <section class="sidebar" style="padding-bottom: 0;">
-      <ul data-widget="tree" class="sidebar-menu scrollbar" style="height: calc(100% - 284px); overflow-y: scroll;">
+    <section class="sidebar test" style="padding-bottom: 0;">
+      <ul data-widget="tree" class="sidebar-menu scrollbar" :style="ulStyle">
         <slide-item
           v-for="(item,index) in slideMenuItems"
           :data="item"
@@ -17,7 +17,7 @@
         >
         </slide-item>
       </ul>
-      <div class="user-panel footer" style="padding: 0" v-show="sidebarOpen">
+      <div class="user-panel lnb-footer" style="padding: 0" v-show="sidebarOpen">
         <div class="pull-left">
           <router-link tag="div" to="/calender" style="padding: 1px; background: #374d56">
             <h4 style="color: white; text-align: center">Calender</h4>
@@ -106,6 +106,10 @@
         seletedDay: {
           start: null,
           end: null
+        },
+        ulStyle: {
+          overflowY: 'scroll',
+          height: document.body.clientHeight - 330 + 'px',
         }
       }
     },
@@ -125,6 +129,7 @@
     },
     mounted() {
       this.$store.dispatch(constants.GROUP_LIST);
+      console.log(window.screen.height)
     }
   }
 
@@ -189,6 +194,9 @@
     bottom: 0;
     width: 100%;
     text-align: center;
+  }
+  .test {
+    min-height: 100%;
   }
   .scrollbar {
     overflow: -moz-scrollbars-none;

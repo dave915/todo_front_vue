@@ -36,7 +36,9 @@
 </template>
 
 <script>
-  import constants from "../../store/constants";
+  import constants from '../../store/constants';
+  import {mapState} from 'vuex';
+
   export default {
     name: "login",
     data() {
@@ -56,7 +58,7 @@
       findPassword() {
         alert('비밀번호 찾기 준비중.')
       }
-    }
+    },
   }
 </script>
 

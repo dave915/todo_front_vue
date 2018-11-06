@@ -19,6 +19,14 @@ module.exports = [
       {
         type: 'item',
         icon: 'fa fa-circle-o',
+        name: 'All',
+        router: {
+          name: 'status/all'
+        }
+      },
+      {
+        type: 'item',
+        icon: 'fa fa-circle-o',
         name: 'Todo',
         router: {
           name: 'status/todo'
@@ -55,11 +63,11 @@ module.exports = [
       name: 'logback'
     }
   },
-  {
-    icon: 'fa fa-dashboard',
-    name: 'Trash',
-    router: {
-      name: 'trash'
-    }
-  },
+  // {
+  //   icon: 'fa fa-dashboard',
+  //   name: 'Trash',
+  //   router: {
+  //     name: 'trash'
+  //   }
+  // },
 ]

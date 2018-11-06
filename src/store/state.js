@@ -1,6 +1,6 @@
 export default {
   auth: {
-    idx: '',
+    idx: 0,
     userName: '',
     email: ''
   },

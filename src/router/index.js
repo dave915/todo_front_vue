@@ -5,7 +5,7 @@ import Login from '@/components/layout/Login'
 import Base from '@/components/layout/Base'
 import Register from '@/components/layout/Register'
 
-Vue.use(Router)
+Vue.use(Router);
 
 export default new Router({
   routes: [
@@ -20,6 +20,12 @@ export default new Router({
           name: 'today',
           component: Contents,
           meta: {title: 'Today', subTitle: '오늘의 할 일'}
+        },
+        {
+          path: 'status/all',
+          name: 'status/all',
+          component: Contents,
+          meta: {title: 'All', subTitle: '전체 상태'}
         },
         {
           path: 'status/todo',
@@ -51,12 +57,12 @@ export default new Router({
           component: Contents,
           meta: {title: 'LogBack', subTitle: '언젠가 할일'}
         },
-        {
-          path: 'trash',
-          name: 'trash',
-          component: Contents,
-          meta: {title: 'Trash', subTitle: '삭제된 항목'}
-        }
+        // {
+        //   path: 'trash',
+        //   name: 'trash',
+        //   component: Contents,
+        //   meta: {title: 'Trash', subTitle: '삭제된 항목'}
+        // }
       ]
     },
     {
