@@ -2,8 +2,7 @@
   <div class="wrapper">
     <gnb></gnb>
     <Lnb></Lnb>
-    <Contents style="padding-bottom: 64px;">
-    </Contents>
+    <Article style="padding-bottom: 64px;"/>
     <base-modal v-if="modalInfo.isShow" :modalInfo="modalInfo"/>
     <Footer/>
     <ItemSideBar/>
@@ -13,7 +12,7 @@
 <script>
   import Gnb from './components/Gnb.vue'
   import Lnb from './components/Lnb.vue'
-  import Contents from './components/Contents.vue'
+  import Article from './components/Article'
   import Footer from './components/Footer'
   import {mapState} from 'vuex'
   import BaseModal from "../modal/BaseModal";
@@ -34,7 +33,7 @@
       BaseModal,
       Gnb,
       Lnb,
-      Contents,
+      Article,
       Footer,
     },
     mounted() {

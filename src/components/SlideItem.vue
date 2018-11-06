@@ -1,5 +1,5 @@
 <template>
-  <router-link tag="li" v-if="router && router.name" :to="router">
+  <router-link tag="li" v-if="router && (router.name || router.path)" :to="router">
     <a href="javascript:void(0)">
       <i :class="icon"></i> <span>{{ name }}</span>
       <span class="pull-right-container" v-show="badge">
@@ -17,7 +17,8 @@
       </span>
     </a>
     <ul class="treeview-menu" v-if="items.length > 0">
-      <router-link tag="li" v-for="(item,index) in items" :data="item" :key="index" :to="item.router" v-if="item.router && item.router.name">
+      <router-link tag="li" v-for="(item,index) in items" :data="item" :key="index" :to="item.router"
+                   v-if="item.router && (item.router.name || item.router.path)">
         <a>
           <i :class="item.icon"> {{ subMenuFormater(item.name) }}</i>
           <span class="pull-right-container" v-if="name === 'Group'">
@@ -72,6 +73,7 @@
         type: Object,
         default () {
           return {
+            path: '',
             name: ''
           }
         }

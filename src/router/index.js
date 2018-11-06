@@ -1,7 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import HelloWorld from '@/components/HelloWorld'
-import Today from '@/components/Today'
+import Contents from '@/components/Contents'
 import Login from '@/components/layout/Login'
 import Base from '@/components/layout/Base'
 import Register from '@/components/layout/Register'
@@ -12,34 +11,51 @@ export default new Router({
   routes: [
     {
       path: '/',
-      redirect: '/hello',
+      redirect: '/today',
       name: 'index',
       component: Base,
       children: [
         {
-          path: 'hello',
-          name: 'Hello',
-          component: Today
+          path: 'today',
+          name: 'today',
+          component: Contents,
+          meta: {title: 'Today', subTitle: '오늘의 할 일'}
         },
         {
-          path: 'hello2',
-          name: 'Hello2',
-          component: Base,
+          path: 'status/todo',
+          name: 'status/todo',
+          component: Contents,
+          meta: {title: 'Todo', subTitle: '할 일'}
+        },
+        {
+          path: 'status/doing',
+          name: 'status/doing',
+          component: Contents,
+          meta: {title: 'Doing', subTitle: '진행중'}
+        },
+        {
+          path: 'status/done',
+          name: 'status/done',
+          component: Contents,
+          meta: {title: 'Done', subTitle: '완료'}
+        },
+        {
+          path: 'group/:idx',
+          name: 'group',
+          component: Contents,
+          meta: {title: 'Group', subTitle: ''}
         },
         {
           path: 'logback',
           name: 'logback',
-          component: HelloWorld
+          component: Contents,
+          meta: {title: 'LogBack', subTitle: '언젠가 할일'}
         },
         {
           path: 'trash',
           name: 'trash',
-          component: Today
-        },
-        {
-          path: 'todo',
-          name: 'todo',
-          component: Today
+          component: Contents,
+          meta: {title: 'Trash', subTitle: '삭제된 항목'}
         }
       ]
     },

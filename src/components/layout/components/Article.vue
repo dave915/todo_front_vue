@@ -8,7 +8,7 @@
 
 <script>
 export default {
-  name: 'Contents',
+  name: 'Article',
   created () {
 
   }

@@ -80,20 +80,24 @@
     },
     watch: {
       groupList() {
-        let groupItem = {
-          type: 'item',
-          icon: 'fa fa-circle-o',
-          router: {
-            name: 'group2'
-          }
-        };
-
-        this.slideMenuItems.filter(i => {
-          if (i.name === 'Group') {
+        this.slideMenuItems
+          .filter(i => i.name === 'Group')
+          .forEach(i => {
             i.items = [];
-            this.groupList.forEach(g => i.items.push({...groupItem, name: g.name, groupInfo: g}))
-          }
-        })
+            this.groupList.forEach(g => {
+              const groupItem = {
+                type: 'item',
+                icon: 'fa fa-circle-o',
+                router: {
+                  path: '/group/' + g.idx,
+                  params: {groupName: g.name}
+                },
+                name: g.name,
+                groupInfo: g
+              };
+              i.items.push(groupItem);
+            });
+          });
       }
     },
     data() {

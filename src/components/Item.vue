@@ -25,11 +25,11 @@
   import constants from '@/store/constants'
   export default {
     name: "TodoItem",
-    props: ['item', 'index', 'defaultGroup'],
+    props: ['item', 'index', 'group'],
     methods: {
       deleteItem(index) {
         this.$store.dispatch(constants.ITEM_DELETE, this.item.idx)
-          .then(() => this.$store.dispatch(constants.ITEM_LIST, this.defaultGroup.idx));
+          .then(() => this.$store.dispatch(constants.ITEM_LIST, this.group.idx));
       },
       openDetail() {
         this.$store.dispatch(constants.ITEM_SIDEBAR_OPEN, this.item)

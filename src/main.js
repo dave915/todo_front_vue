@@ -22,10 +22,17 @@ new Vue({
 });
 
 router.beforeEach((to, from, next) => {
-  if (!passAuthCheckPath(to) && store.state.auth.idx === '')
+  if (!passAuthCheckPath(to) && store.state.auth.idx === '') {
     next({path: 'login'});
-  else
-    next();
+    return;
+  }
+
+  if(to.name === 'group') {
+    const groupIdx = to.params.idx;
+    to.meta.subTitle = store.state.groupList.filter(g => g.idx === parseInt(groupIdx))[0].name;
+  }
+
+  next();
 });
 
 const passAuthCheckPath = (router) => {

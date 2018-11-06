@@ -8,7 +8,7 @@ module.exports = [
     icon: 'fa fa-dashboard',
     name: 'Today',
     router: {
-      name: 'Hello'
+      name: 'today'
     }
   },
   {
@@ -21,7 +21,7 @@ module.exports = [
         icon: 'fa fa-circle-o',
         name: 'Todo',
         router: {
-          name: 'todo'
+          name: 'status/todo'
         }
       },
       {
@@ -29,7 +29,7 @@ module.exports = [
         icon: 'fa fa-circle-o',
         name: 'Doing',
         router: {
-          name: 'doing'
+          name: 'status/doing'
         }
       },
       {
@@ -37,7 +37,7 @@ module.exports = [
         icon: 'fa fa-circle-o',
         name: 'Done',
         router: {
-          name: 'done'
+          name: 'status/done'
         }
       },
     ]
