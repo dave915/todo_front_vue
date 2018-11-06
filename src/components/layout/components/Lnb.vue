@@ -73,10 +73,7 @@
           return {start: this.seletedDay.start, end: this.seletedDay.start};
 
         return this.seletedDay;
-      }
-    },
-    created() {
-
+      },
     },
     watch: {
       groupList() {
@@ -103,14 +100,15 @@
     data() {
       return {
         slideMenuItems: slideMenuItemList,
+        windowHeight: document.body.clientHeight,
         seletedDay: {
           start: null,
           end: null
         },
         ulStyle: {
           overflowY: 'scroll',
-          height: document.body.clientHeight - 330 + 'px',
-        }
+          height: 0,
+        },
       }
     },
     components: {
@@ -125,12 +123,24 @@
           this.seletedDay.start = day.date;
         else
           this.seletedDay.end = day.date;
+      },
+      heightSize() {
+        return document.body.clientHeight - 334 + 'px';
+      },
+      handleResize() {
+        this.ulStyle.height = this.heightSize()
       }
     },
     mounted() {
       this.$store.dispatch(constants.GROUP_LIST);
-      console.log(window.screen.height)
-    }
+    },
+    created() {
+      this.handleResize();
+      window.addEventListener('resize', this.handleResize);
+    },
+    destroyed() {
+      window.removeEventListener('resize', this.handleResize);
+    },
   }
 
   const testDate = [
