@@ -116,4 +116,7 @@ export default {
       .then((res) => {
       });
   },
+  [constants.CALENDER_INIT]: (store, payload) => {
+    store.commit(constants.CALENDER_INIT, payload);
+  }
 }

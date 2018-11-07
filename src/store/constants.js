@@ -22,4 +22,5 @@ export default {
   ITEM_LIST: 'item/list',
   ITEM_ADD: 'item/add',
   ITEM_DELETE: 'item/delete',
+  CALENDER_INIT: 'calender/init'
 }

@@ -20,6 +20,10 @@ export default {
     idx: 0,
     title: ''
   },
+  seletedDay: {
+    start: null,
+    end: null
+  },
   currentItem: {},
   groupList: [],
   groupJoinUserList: []

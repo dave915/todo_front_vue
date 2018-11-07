@@ -62,6 +62,9 @@ export default {
     state.groupJoinUserList = [];
   },
   [constants.ITEM_LIST]: (state, payload) => {
-    state.itemList = payload
+    state.itemList = payload;
   },
+  [constants.CALENDER_INIT]: (state, payload) => {
+    state.seletedDay = payload;
+  }
 }

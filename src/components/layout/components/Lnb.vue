@@ -39,11 +39,12 @@
   import SlideItem from '../../SlideItem'
   import {mapState} from 'vuex'
   import constants from "../../../store/constants";
+  import moment from 'moment';
 
   export default {
     name: 'Lnb',
     computed: {
-      ...mapState(['sidebarOpen', 'groupList']),
+      ...mapState(['sidebarOpen', 'groupList', 'seletedDay']),
       classObject() {
         return {
           'main-sidebar' : true,
@@ -54,7 +55,7 @@
         return [
           {
             highlight: {
-              backgroundColor: '#ff8080',
+              backgroundColor: '#00b7e6',
             },
             // Just use a normal style
             contentStyle: {
@@ -101,10 +102,6 @@
       return {
         slideMenuItems: slideMenuItemList,
         windowHeight: document.body.clientHeight,
-        seletedDay: {
-          start: null,
-          end: null
-        },
         ulStyle: {
           overflowY: 'scroll',
           height: 0,
@@ -116,13 +113,27 @@
     },
     methods: {
       dayClicked(day) {
-        if(this.seletedDay.end != null)
-          return this.seletedDay = {start: null, end: null};
+        let start = this.seletedDay.start;
+        let end = this.seletedDay.end;
 
-        if(this.seletedDay.start === null)
-          this.seletedDay.start = day.date;
+        if(this.seletedDay.end != null) {
+          this.$store.dispatch(constants.CALENDER_INIT, {start: null, end: null});
+          return;
+        }
+
+        if(this.seletedDay.start === null) {
+          start = moment(day.date).valueOf();
+        }
         else
-          this.seletedDay.end = day.date;
+          end = moment(day.date).valueOf();
+
+        if(end !== null && start > end) {
+          const temp = end;
+          end = start;
+          start = temp;
+        }
+
+        this.$store.dispatch(constants.CALENDER_INIT, {start: start, end: end});
       },
       heightSize() {
         return document.body.clientHeight - 334 + 'px';

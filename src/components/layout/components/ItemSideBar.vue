@@ -77,7 +77,6 @@
           this.asideClass = this.asideClass.filter(c => c !== 'control-sidebar-open');
       },
       currentItem() {
-        console.log(this.currentItem)
         this.item = this.currentItem
       }
     },
@@ -85,7 +84,7 @@
       return {
         asideClass: ['control-sidebar', 'item-detail-bar'],
         item: {
-          title: '333'
+          title: ''
         },
       }
     },
