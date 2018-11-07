@@ -65,6 +65,20 @@ export default {
     state.itemList = payload;
   },
   [constants.CALENDER_INIT]: (state, payload) => {
-    state.seletedDay = payload;
-  }
+    state.selectedDay = payload;
+  },
+  [constants.SEARCH_OPTION_SET]: (state, payload) => {
+    state.searchOption = {...state.searchOption, ...payload};
+  },
+  [constants.SEARCH_OPTION_INIT]: (state, payload) => {
+    state.searchOption = {
+      startDate: null,
+      endDate: null,
+      status: null,
+      groupIdx: null,
+      keywordType: null,
+      keyword: null,
+      itemType: null,
+    };
+  },
 }

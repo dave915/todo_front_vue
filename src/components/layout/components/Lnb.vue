@@ -44,7 +44,7 @@
   export default {
     name: 'Lnb',
     computed: {
-      ...mapState(['sidebarOpen', 'groupList', 'seletedDay']),
+      ...mapState(['sidebarOpen', 'groupList', 'selectedDay', 'searchOption']),
       classObject() {
         return {
           'main-sidebar' : true,
@@ -67,13 +67,13 @@
         ]
       },
       dates() {
-        if(this.seletedDay.start === null && this.seletedDay.end === null)
+        if(this.selectedDay.start === null && this.selectedDay.end === null)
           return null;
 
-        if(this.seletedDay.end === null)
-          return {start: this.seletedDay.start, end: this.seletedDay.start};
+        if(this.selectedDay.end === null)
+          return {start: this.selectedDay.start, end: this.selectedDay.start};
 
-        return this.seletedDay;
+        return this.selectedDay;
       },
     },
     watch: {
@@ -113,19 +113,19 @@
     },
     methods: {
       dayClicked(day) {
-        let start = this.seletedDay.start;
-        let end = this.seletedDay.end;
+        let start = this.selectedDay.start;
+        let end = this.selectedDay.end;
 
-        if(this.seletedDay.end != null) {
+        if(this.selectedDay.end != null) {
           this.$store.dispatch(constants.CALENDER_INIT, {start: null, end: null});
           return;
         }
 
-        if(this.seletedDay.start === null) {
-          start = moment(day.date).valueOf();
+        if(this.selectedDay.start === null) {
+          start = moment(day.date).format('YYYY-MM-DD 00:00:00')
         }
         else
-          end = moment(day.date).valueOf();
+          end = moment(day.date).format('YYYY-MM-DD 00:00:00');
 
         if(end !== null && start > end) {
           const temp = end;
@@ -134,6 +134,10 @@
         }
 
         this.$store.dispatch(constants.CALENDER_INIT, {start: start, end: end});
+
+        if(end !== null) {
+          this.$store.dispatch(constants.ITEM_LIST, {...this.searchOption, startDate: start, endDate: end});
+        }
       },
       heightSize() {
         return document.body.clientHeight - 334 + 'px';

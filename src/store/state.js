@@ -20,11 +20,20 @@ export default {
     idx: 0,
     title: ''
   },
-  seletedDay: {
+  selectedDay: {
     start: null,
     end: null
   },
   currentItem: {},
   groupList: [],
-  groupJoinUserList: []
+  groupJoinUserList: [],
+  searchOption: {
+    startDate: null,
+    endDate: null,
+    status: null,
+    groupIdx: null,
+    keywordType: null,
+    keyword: null,
+    itemType: null,
+  }
 }

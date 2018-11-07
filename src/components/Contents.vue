@@ -36,10 +36,10 @@
           this.group = this.defaultGroup;
           this.getItemList();
         }
-      }
+      },
     },
     computed: {
-      ...mapState(['defaultGroup']),
+      ...mapState(['defaultGroup', 'selectedDay']),
       itemList: {
         get() {
           return this.$store.state.itemList
@@ -68,19 +68,32 @@
       },
       setCalender() {
         if(this.path.startsWith('/today') || this.path.startsWith('/group')) {
-          const today = moment.now();
-          this.$store.dispatch(constants.CALENDER_INIT, {start: today, end: today});
+          this.$store.dispatch(constants.CALENDER_INIT, {start: this.today, end: this.today});
         } else {
           this.$store.dispatch(constants.CALENDER_INIT, {start: null, end: null});
         }
       },
       getItemList() {
         this.setCalender();
-        this.$store.dispatch(constants.ITEM_LIST, {groupIdx: this.group.idx});
+        const searchOption = this.getSearchOption();
+        this.$store.dispatch(constants.SEARCH_OPTION_SET, searchOption);
+        this.$store.dispatch(constants.ITEM_LIST, searchOption);
+      },
+      getSearchOption() {
+        let searchOption = {startDate: this.selectedDay.start, endDate: this.selectedDay.end, status: null};
+
+        if (this.path.startsWith('/today'))
+          searchOption = {...searchOption, groupIdx: this.group.idx};
+        else if (this.path.startsWith('/logback'))
+          searchOption = {groupIdx: this.group.idx, itemType: 2};
+
+
+        return searchOption;
       }
     },
     data() {
       return {
+        today: moment(new Date()).format('YYYY-MM-DD 00:00:00'),
         group: {},
       }
     },

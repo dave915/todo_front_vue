@@ -118,5 +118,11 @@ export default {
   },
   [constants.CALENDER_INIT]: (store, payload) => {
     store.commit(constants.CALENDER_INIT, payload);
+  },
+  [constants.SEARCH_OPTION_SET]: (store, payload) => {
+    store.commit(constants.SEARCH_OPTION_SET, payload);
+  },
+  [constants.SEARCH_OPTION_INIT]: (store, payload) => {
+    store.commit(constants.SEARCH_OPTION_INIT, payload);
   }
 }
