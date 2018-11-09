@@ -13,7 +13,7 @@
   export default {
     name: "Footer",
     computed: {
-      ...mapState(['defaultGroup'])
+      ...mapState(['defaultGroup', 'searchOption'])
     },
     methods: {
       showAddItemModal() {
@@ -27,9 +27,10 @@
         };
         this.$store.dispatch(constants.SHOW_MODAL, modalInfo)
       },
-      addItem(groupIdx, title) {
-        this.$store.dispatch(constants.ITEM_ADD, {groupIdx, title})
-          .then(() => this.$store.dispatch(constants.ITEM_LIST, this.defaultGroup.idx));
+      addItem(item) {
+        console.log(item)
+        this.$store.dispatch(constants.ITEM_ADD, item)
+          .then(() => this.$store.dispatch(constants.ITEM_LIST, {...this.searchOption}));
         this.$store.dispatch(constants.INIT_MODAL)
       }
     },

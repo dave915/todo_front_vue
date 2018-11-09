@@ -8,9 +8,15 @@ import 'vue2-admin-lte/src/lib/css'
 import 'vue2-admin-lte/src/lib/script'
 import VCalendar from 'v-calendar';
 import 'v-calendar/lib/v-calendar.min.css';
+import { TimePicker } from 'element-ui';
+import lang from 'element-ui/lib/locale/lang/ko'
+import locale from 'element-ui/lib/locale'
+
+locale.use(lang);
 
 Vue.use(VCalendar);
-Vue.config.productionTip = false
+Vue.use(TimePicker);
+Vue.config.productionTip = false;
 
 /* eslint-disable no-new */
 new Vue({

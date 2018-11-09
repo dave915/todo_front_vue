@@ -122,10 +122,10 @@
         }
 
         if(this.selectedDay.start === null) {
-          start = moment(day.date).format('YYYY-MM-DD 00:00:00')
+          start = moment(day.date).format('YYYY.MM.DD 00:00:00')
         }
         else
-          end = moment(day.date).format('YYYY-MM-DD 00:00:00');
+          end = moment(day.date).format('YYYY.MM.DD 00:00:00');
 
         if(end !== null && start > end) {
           const temp = end;

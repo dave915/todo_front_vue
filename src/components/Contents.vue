@@ -6,9 +6,9 @@
         <item-list :item-list="itemList" :group="group"/>
       </div>
       <div v-else>
-        <item-list :item-list="itemList" :group="group" status="Todo"/>
-        <item-list :item-list="itemList" :group="group" status="Doing"/>
-        <item-list :item-list="itemList" :group="group" status="Done"/>
+        <item-list :item-list="itemList.filter(i => i.status === 1)" :group="group" status="Todo"/>
+        <item-list :item-list="itemList.filter(i => i.status === 2)" :group="group" status="Doing"/>
+        <item-list :item-list="itemList.filter(i => i.status === 3)" :group="group" status="Done"/>
       </div>
     </section>
   </div>
@@ -80,20 +80,29 @@
         this.$store.dispatch(constants.ITEM_LIST, searchOption);
       },
       getSearchOption() {
-        let searchOption = {startDate: this.selectedDay.start, endDate: this.selectedDay.end, status: null};
+        let searchOption;
 
         if (this.path.startsWith('/today'))
-          searchOption = {...searchOption, groupIdx: this.group.idx};
+          searchOption = {startDate: this.selectedDay.start, endDate: this.selectedDay.end, status: null};
+        else if (this.path.startsWith('/status/all'))
+          searchOption = {};
+        else if (this.path.startsWith('/status/todo'))
+          searchOption = {status: 1};
+        else if (this.path.startsWith('/status/doing'))
+          searchOption = {status: 2};
+        else if (this.path.startsWith('/status/done'))
+          searchOption = {status: 3};
+        else if (this.path.startsWith('/group'))
+          searchOption = {groupIdx: this.path.split('/')[2]};
         else if (this.path.startsWith('/logback'))
           searchOption = {groupIdx: this.group.idx, itemType: 2};
-
 
         return searchOption;
       }
     },
     data() {
       return {
-        today: moment(new Date()).format('YYYY-MM-DD 00:00:00'),
+        today: moment(new Date()).format('YYYY.MM.DD 00:00:00'),
         group: {},
       }
     },
