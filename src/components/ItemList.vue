@@ -43,8 +43,7 @@
     },
     watch: {
       itemList() {
-        if(this.list.length < 1 && this.itemList.length > 0)
-          this.list = this.itemList;
+        this.list = this.itemList;
       }
     },
     components: {

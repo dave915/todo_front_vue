@@ -67,7 +67,7 @@
         return !(menuTitle === 'todo' || menuTitle === 'doing' || menuTitle === 'done');
       },
       setCalender() {
-        if(this.path.startsWith('/today') || this.path.startsWith('/group')) {
+        if(this.path.startsWith('/today')) {
           this.$store.dispatch(constants.CALENDER_INIT, {start: this.today, end: this.today});
         } else {
           this.$store.dispatch(constants.CALENDER_INIT, {start: null, end: null});
@@ -83,7 +83,7 @@
         let searchOption;
 
         if (this.path.startsWith('/today'))
-          searchOption = {startDate: this.selectedDay.start, endDate: this.selectedDay.end, status: null};
+          searchOption = {startDate: this.selectedDay.start, endDate: this.selectedDay.end};
         else if (this.path.startsWith('/status/all'))
           searchOption = {};
         else if (this.path.startsWith('/status/todo'))

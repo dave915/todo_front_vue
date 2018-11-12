@@ -103,7 +103,7 @@
   .item-detail-bar {
     width: 300px;
     right: -300px;
-    background: #dfdfdf;
+    background: #f4f4f4;
   }
 
   .item-detail-bar.control-sidebar-open {
@@ -111,7 +111,7 @@
   }
 
   .division {
-    border-top: 1px #f4f4f4 solid;
+    border-top: 1px #d2d6de solid;
     margin-top: 10px;
     margin-bottom: 10px;
   }

@@ -1,5 +1,5 @@
 <template>
-  <div @click="openDetail">
+  <div @click="toggleDetail">
     <!-- drag handle -->
     <span class="handle">
       <i class="fa fa-ellipsis-v"></i>
@@ -8,7 +8,7 @@
     <span @click.stop="statusClicked"><i :class="getStatusClass()" style="cursor: pointer"></i></span>
     <span class="text">{{item.title}}</span>
     <div class="tools">
-      <i class="fa fa-trash-o" @click.stop="deleteItem(index)"></i>
+      <i class="fa fa-trash-o" @click.stop="deleteItem()"></i>
     </div>
   </div>
 </template>
@@ -22,15 +22,18 @@
     name: "TodoItem",
     props: ['item', 'index', 'group'],
     computed: {
-      ...mapState(['searchOption']),
+      ...mapState(['searchOption', 'currentItem']),
     },
     methods: {
-      deleteItem(index) {
+      deleteItem() {
         this.$store.dispatch(constants.ITEM_DELETE, this.item.idx)
           .then(() => this.$store.dispatch(constants.ITEM_LIST, this.group.idx));
       },
-      openDetail() {
-        this.$store.dispatch(constants.ITEM_SIDEBAR_OPEN, this.item)
+      toggleDetail() {
+        if(this.currentItem.idx === this.item.idx)
+          this.$store.dispatch(constants.ITEM_SIDEBAR_CLOSE);
+        else
+          this.$store.dispatch(constants.ITEM_SIDEBAR_OPEN, this.item);
       },
       getStatusClass() {
         if(this.item.status === 1)

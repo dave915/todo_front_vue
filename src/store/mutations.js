@@ -68,7 +68,16 @@ export default {
     state.selectedDay = payload;
   },
   [constants.SEARCH_OPTION_SET]: (state, payload) => {
-    state.searchOption = {...state.searchOption, ...payload};
+    const defaultSearchOption = {
+      startDate: null,
+      endDate: null,
+      status: null,
+      groupIdx: null,
+      keywordType: null,
+      keyword: null,
+      itemType: null,
+    };
+    state.searchOption = {...defaultSearchOption, ...payload};
   },
   [constants.SEARCH_OPTION_INIT]: (state, payload) => {
     state.searchOption = {
