@@ -5,17 +5,8 @@
       <i class="fa fa-ellipsis-v"></i>
       <i class="fa fa-ellipsis-v"></i>
     </span>
-    <!-- checkbox -->
-    <!--<input type="checkbox" v-model="item.status">-->
     <span @click.stop="statusClicked"><i :class="getStatusClass()" style="cursor: pointer"></i></span>
-    <!-- todo text -->
     <span class="text">{{item.title}}</span>
-    <!-- Emphasis label -->
-    <!--<small class="label label-danger">-->
-      <!--<i class="fa fa-clock-o"></i>-->
-      <!--2 mins-->
-    <!--</small>-->
-    <!-- General tools such as edit or delete-->
     <div class="tools">
       <i class="fa fa-trash-o" @click.stop="deleteItem(index)"></i>
     </div>
