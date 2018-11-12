@@ -14,7 +14,7 @@
           <Item :item="item" :index="index" :group="group"/>
         </li>
       </draggable>
-      <div v-if="list !== null && list.length < 1 " style="text-align: center; margin-bottom: 10px">
+      <div v-if="list.length < 1 " style="text-align: center; margin-bottom: 10px">
         일정이 없습니다.
       </div>
     </div>
@@ -35,7 +35,7 @@
       return {
         boxClass: 'box box-info',
         minusBtn: 'fa fa-minus',
-        list: null
+        list: []
       }
     },
     computed: {
@@ -43,7 +43,7 @@
     },
     watch: {
       itemList() {
-        if(this.list === null && this.itemList.length > 0)
+        if(this.list.length < 1 && this.itemList.length > 0)
           this.list = this.itemList;
       }
     },
