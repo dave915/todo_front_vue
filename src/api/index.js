@@ -68,6 +68,9 @@ export default {
     addItem(payload) {
       return axios.post('/api/item', payload);
     },
+    saveItem(payload) {
+      return axios.put('/api/item', payload);
+    },
     deleteItem(payload) {
       return axios.delete(`/api/item/${payload}`);
     },

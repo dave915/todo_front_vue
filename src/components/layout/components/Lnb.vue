@@ -116,12 +116,13 @@
         let start = this.selectedDay.start;
         let end = this.selectedDay.end;
 
-        if(this.selectedDay.end != null) {
-          this.$store.dispatch(constants.CALENDER_INIT, {start: null, end: null});
+        if(end != null) {
+          start = moment(day.date).format('YYYY.MM.DD 00:00:00');
+          this.$store.dispatch(constants.CALENDER_INIT, {start: start, end: null});
           return;
         }
 
-        if(this.selectedDay.start === null) {
+        if(start === null) {
           start = moment(day.date).format('YYYY.MM.DD 00:00:00')
         }
         else
@@ -137,6 +138,7 @@
 
         if(end !== null) {
           this.$store.dispatch(constants.ITEM_LIST, {...this.searchOption, startDate: start, endDate: end});
+          this.$store.dispatch(constants.SEARCH_OPTION_SET, {...this.searchOption, startDate: start, endDate: end})
         }
       },
       heightSize() {

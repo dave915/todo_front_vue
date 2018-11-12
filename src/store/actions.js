@@ -1,6 +1,7 @@
 import api from '../api';
 import constants from './constants'
 import router from '../router'
+import moment from 'moment'
 
 export default {
   [constants.SIDEBAR_TOGGLE]: (store, payload) => {
@@ -108,6 +109,14 @@ export default {
   },
   [constants.ITEM_ADD]: (store, payload) => {
     return api.item.addItem(payload)
+      .then((res) => {
+      });
+  },
+  [constants.ITEM_SAVE]: (store, payload) => {
+    payload.itemDatetime = moment(payload.itemDatetime).format('YYYY.MM.DD 00:00:00');
+    payload.createAt = moment(payload.createAt).format('YYYY.MM.DD 00:00:00');
+
+    return api.item.saveItem(payload)
       .then((res) => {
       });
   },

@@ -28,9 +28,8 @@
         this.$store.dispatch(constants.SHOW_MODAL, modalInfo)
       },
       addItem(item) {
-        console.log(item)
         this.$store.dispatch(constants.ITEM_ADD, item)
-          .then(() => this.$store.dispatch(constants.ITEM_LIST, {...this.searchOption}));
+          .then(() => this.$store.dispatch(constants.ITEM_LIST, this.searchOption));
         this.$store.dispatch(constants.INIT_MODAL)
       }
     },

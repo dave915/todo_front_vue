@@ -6,9 +6,9 @@
         <item-list :item-list="itemList" :group="group"/>
       </div>
       <div v-else>
-        <item-list :item-list="itemList.filter(i => i.status === 1)" :group="group" status="Todo"/>
-        <item-list :item-list="itemList.filter(i => i.status === 2)" :group="group" status="Doing"/>
-        <item-list :item-list="itemList.filter(i => i.status === 3)" :group="group" status="Done"/>
+        <item-list :item-list="itemList.filter(i => i.status === 1)" :group="group" status="1"/>
+        <item-list :item-list="itemList.filter(i => i.status === 2)" :group="group" status="2"/>
+        <item-list :item-list="itemList.filter(i => i.status === 3)" :group="group" status="3"/>
       </div>
     </section>
   </div>

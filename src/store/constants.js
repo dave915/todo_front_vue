@@ -21,6 +21,7 @@ export default {
   GROUP_BANISH: 'group/banish',
   ITEM_LIST: 'item/list',
   ITEM_ADD: 'item/add',
+  ITEM_SAVE: 'item/save',
   ITEM_DELETE: 'item/delete',
   CALENDER_INIT: 'calender/init',
   SEARCH_OPTION_SET: 'searchOption/set',
