@@ -22,13 +22,13 @@
          </div>
        </div>
        <div class="row">
-         <div class="col-lg-12">
-           <input type="text" :placeholder="modalInfo.placeholder" class="form-control col-lg-9" v-model="input">
+         <div class="col-md-12">
+           <input type="text" :placeholder="modalInfo.placeholder" class="form-control col-md-9" v-model="input">
          </div>
        </div>
      </div>
      <div v-else class="row">
-       <input type="text" :placeholder="modalInfo.placeholder" class="form-control col-lg-12" v-model="input">
+       <input type="text" :placeholder="modalInfo.placeholder" class="form-control col-md-12" v-model="input">
      </div>
    </div>
    <div class="modal-footer">
@@ -108,7 +108,7 @@
   }
 </script>
 
-<style>
+<style scoped>
   .modal-header h4 {
     margin-top: 0;
     color: #42b983;
@@ -121,58 +121,5 @@
   .modal-default-button {
     float: right;
     margin-left: 10px;
-  }
-
-  .date-picker input {
-    display: block;
-    width: 100%;
-    height: 34px;
-    padding: 6px 12px;
-    font-size: 14px;
-    line-height: 1.42857143;
-    color: #555;
-    background-color: #fff;
-    background-image: none;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
-
-  .date-picker input:focus {
-    border-color: #409EFF;
-    outline: 0;
-  }
-
-  .el-date-editor.el-input {
-    width: 100%;
-    height: 34px;
-  }
-
-  .el-date-editor .el-input .el-input__inner {
-    display: block;
-    width: 100%;
-    height: 34px;
-    padding: 6px 12px;
-    font-size: 14px;
-    line-height: 1.42857143;
-    color: #555;
-    background-color: #fff;
-    background-image: none;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
-
-  .el-input--small .el-input__inner {
-    height: 34px;
-    color: #555;
-    border: 1px solid #ccc;
-  }
-
-  .el-input--small .el-input__inner:focus {
-    border-color: #409EFF;
-    outline: 0;
-  }
-
-  .time-picker-popup {
-    z-index: 10000;
   }
 </style>

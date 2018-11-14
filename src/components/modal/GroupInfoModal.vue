@@ -6,7 +6,7 @@
      </div>
      <div class="modal-body">
        <div class="row">
-         <div class="col-lg-10" style="padding-left: 0;padding-right: 0;">
+         <div class="col-md-10" style="padding-left: 0;padding-right: 0;">
            <input type="text" placeholder="그룹명" class="form-control" v-model="groupName">
          </div>
          <div class="col-md-2">
@@ -23,9 +23,9 @@
    </div>
    <div class="modal-body">
      <div class="row" v-if="isOwner">
-       <div class="col-lg-10" style="padding-left: 0;padding-right: 0;">
+       <div class="col-md-10" style="padding-left: 0;padding-right: 0;">
          <input type="text" placeholder="유저 이메일 또는 유저명" class="form-control" id="searchUser" data-toggle="dropdown" v-model="searchKeyword">
-         <ul class="dropdown-menu col-lg-12" role="menu" aria-labelledby="searchUser" v-if="searchUsers.length > 0">
+         <ul class="dropdown-menu col-md-12" role="menu" aria-labelledby="searchUser" v-if="searchUsers.length > 0">
            <li role="presentation" v-for="user in searchUsers">
              <a role="menuitem" tabindex="-1" href="javascript:void(0)" @click="userSelected(user)"> {{user.email}} ({{user.userName}})</a>
            </li>
@@ -36,8 +36,8 @@
        </div>
      </div>
      <div class="row" style="margin-top: 10px">
-       <div class="user-box col-lg-12">
-         <div class="user-list col-lg-12" v-for="user in groupJoinUserList">
+       <div class="user-box col-md-12">
+         <div class="user-list col-md-12" v-for="user in groupJoinUserList">
            <span>{{user.email}} {{user.userName}} </span>
            <label class="label bg-red label-btn" v-if="isOwner && auth.idx !== user.idx" @click="banishGroupUser(user)">삭제</label>
            <label class="label bg-green label-btn" v-if="isOwner && auth.idx !== user.idx" @click="changeOwner(user)">소유권 넘기기</label>
