@@ -130,11 +130,9 @@
         this.$store.dispatch(constants.ITEM_SIDEBAR_CLOSE)
       },
       itemInfoChanged() {
-        console.log('changed');
         this.saveItemInfo();
       },
       saveItemInfo() {
-        console.log('save');
         const updateItem = _.assign({}, this.item);
         updateItem.itemDatetime = this.getItemDatetime();
         this.$store.dispatch(constants.ITEM_SAVE, updateItem);
@@ -145,9 +143,7 @@
 
         const date = moment(new Date(this.selectDate)).format('YYYY.MM.DD');
         const time = this.selectTime.toString().length > 5 ? moment(new Date(this.selectTime)).format('hh:mm:00') : this.selectTime;
-        const itemDatetime = `${date} ${time}`;
-
-        return itemDatetime;
+        return `${date} ${time}`;
       }
     },
     mounted() {
