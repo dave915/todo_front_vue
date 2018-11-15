@@ -112,6 +112,11 @@ export default {
       .then((res) => {
       });
   },
+  [constants.ITEM_ADD_REPEAT]: (store, payload) => {
+    return api.item.addRepeatItem(payload)
+      .then((res) => {
+      });
+  },
   [constants.ITEM_SAVE]: (store, payload) => {
     payload.itemDatetime = moment(payload.itemDatetime).format('YYYY.MM.DD hh:mm:00');
     payload.createAt = moment(payload.createAt).format('YYYY.MM.DD hh:mm:ss');

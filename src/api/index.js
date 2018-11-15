@@ -71,6 +71,9 @@ export default {
     saveItem(payload) {
       return axios.put('/api/item', payload);
     },
+    addRepeatItem(payload) {
+      return axios.post('/api/repeatItem', payload);
+    },
     deleteItem(payload) {
       return axios.delete(`/api/item/${payload}`);
     },

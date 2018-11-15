@@ -48,6 +48,11 @@
       statusClicked() {
         let currentItem = _.assign({}, this.item);
         currentItem.status = this.getNextStatus(currentItem.status);
+
+        if(currentItem.status === 3) {
+          this.$store.dispatch(constants.ITEM_ADD_REPEAT, currentItem)
+        }
+
         this.$store.dispatch(constants.ITEM_SAVE, currentItem)
           .then(() => this.$store.dispatch(constants.ITEM_LIST, this.searchOption))
       },

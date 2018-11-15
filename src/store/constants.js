@@ -23,6 +23,7 @@ export default {
   ITEM_ADD: 'item/add',
   ITEM_SAVE: 'item/save',
   ITEM_DELETE: 'item/delete',
+  ITEM_ADD_REPEAT: 'item/add/repeat',
   CALENDER_INIT: 'calender/init',
   SEARCH_OPTION_SET: 'searchOption/set',
   SEARCH_OPTION_INIT: 'searchOption/init'
