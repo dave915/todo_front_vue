@@ -35,7 +35,9 @@ router.beforeEach((to, from, next) => {
 
   if(to.name === 'group') {
     const groupIdx = to.params.idx;
-    to.meta.subTitle = store.state.groupList.filter(g => g.idx === parseInt(groupIdx))[0].name;
+    const list = store.state.groupList.filter(g => g.idx === parseInt(groupIdx))
+    if(list.length > 0)
+      to.meta.subTitle = list[0].name;
   }
 
   next();

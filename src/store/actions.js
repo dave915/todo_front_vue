@@ -36,7 +36,7 @@ export default {
     return api.auth.login(payload)
       .then((res) => {
         store.commit(constants.AUTH_LOGIN, res.data);
-        router.push({path: 'today'});
+        location.href = '/';
       });
   },
   [constants.AUTH_LOGOUT]: (store, payload) => {

@@ -118,7 +118,6 @@
       ...mapState(['groupList', 'groupJoinUserList', 'auth']),
       defaultGroup: {
         get() {
-          this.groupSelect = this.$store.state.defaultGroup.idx;
           return this.$store.state.defaultGroup
         }
       },
