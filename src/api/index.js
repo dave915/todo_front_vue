@@ -54,6 +54,9 @@ export default {
     inviteUser(payload) {
       return axios.post(`/api/group/invite/${payload.groupIdx}/${payload.userIdx}`);
     },
+    checkInvite(payload) {
+      return axios.get(`/api/group/invite/${payload}`);
+    },
     passOwner(payload) {
       return axios.put(`/api/group/pass/${payload.groupIdx}/${payload.userIdx}`);
     },

@@ -4,6 +4,7 @@ import Contents from '@/components/Contents'
 import Login from '@/components/layout/Login'
 import Base from '@/components/layout/Base'
 import Register from '@/components/layout/Register'
+import InviteGroup from '@/components/layout/InviteGroup'
 
 Vue.use(Router);
 
@@ -74,6 +75,11 @@ export default new Router({
       path: '/register',
       name: 'register',
       component: Register
+    },
+    {
+      path: '/invite/group/:inviteCode',
+      name: 'InviteGroup',
+      component: InviteGroup
     },
   ],
   linkActiveClass: 'active'

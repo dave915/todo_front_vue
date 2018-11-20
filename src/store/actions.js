@@ -77,7 +77,11 @@ export default {
   [constants.GROUP_USER_LIST]: (store, payload) => {
     return api.group.getGroupJoinUserList(payload)
       .then((res) => {
-        store.commit(constants.GROUP_USER_LIST, res.data);
+        const data = res.data.map(user => {
+          const info = {...user[0], type: user[1]};
+          return info;
+        });
+        store.commit(constants.GROUP_USER_LIST, data);
       });
   },
   [constants.GROUP_USER_LIST_RESET]: (store, payload) => {
@@ -86,8 +90,17 @@ export default {
   [constants.GROUP_INVITE]: (store, payload) => {
     return api.group.inviteUser(payload)
       .then((res) => {
+        console.log(res.data)
         alert('초대 완료되었습니다.');
-      });
+      })
+      .catch((e) => alert('이미 그룹에 가입된 유저입니다.'));
+  },
+  [constants.GROUP_INVITE_CHECK]: (store, payload) => {
+    return api.group.checkInvite(payload.inviteCode)
+      .then((res) => {
+        console.log(res)
+        payload.callBack(res.data.result);
+      })
   },
   [constants.GROUP_PASS]: (store, payload) => {
     return api.group.passOwner(payload)

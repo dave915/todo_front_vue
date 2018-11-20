@@ -40,7 +40,8 @@
          <div class="user-list col-md-12" v-for="user in groupJoinUserList">
            <span>{{user.email}} {{user.userName}} </span>
            <label class="label bg-red label-btn" v-if="isOwner && auth.idx !== user.idx" @click="banishGroupUser(user)">삭제</label>
-           <label class="label bg-green label-btn" v-if="isOwner && auth.idx !== user.idx" @click="changeOwner(user)">소유권 넘기기</label>
+           <label class="label bg-green label-btn" v-if="isOwner && auth.idx !== user.idx && user.type === 2" @click="changeOwner(user)">소유권 넘기기</label>
+           <label class="label bg-blue label-btn" v-if="isOwner && auth.idx !== user.idx && user.type === 3">승인 대기중</label>
          </div>
        </div>
      </div>

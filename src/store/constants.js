@@ -17,6 +17,7 @@ export default {
   GROUP_USER_LIST: 'group/userList',
   GROUP_USER_LIST_RESET: 'group/userList/reset',
   GROUP_INVITE: 'group/invite',
+  GROUP_INVITE_CHECK: 'group/invite/check',
   GROUP_PASS: 'group/pass',
   GROUP_BANISH: 'group/banish',
   ITEM_LIST: 'item/list',
