@@ -29,7 +29,7 @@ new Vue({
 
 router.beforeEach((to, from, next) => {
   if (!passAuthCheckPath(to) && store.state.auth.idx === 0) {
-    next({path: 'login'});
+    location.href = '/';
     return;
   }
 

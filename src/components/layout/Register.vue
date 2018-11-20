@@ -5,8 +5,6 @@
     </div>
 
     <div class="register-box-body">
-      <p class="login-box-msg">Register a new membership</p>
-
       <form>
         <div class="form-group has-feedback">
           <input type="text" class="form-control" placeholder="Full name" v-model="userInfo.userName">
@@ -28,7 +26,7 @@
           <div class="col-xs-8">
             <div class="checkbox icheck">
               <label>
-                <router-link to="/login" class="text-center">I already have a membership</router-link>
+                <router-link to="/login" class="text-center">로그인</router-link>
               </label>
             </div>
           </div>

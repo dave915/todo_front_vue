@@ -5,6 +5,8 @@ import Login from '@/components/layout/Login'
 import Base from '@/components/layout/Base'
 import Register from '@/components/layout/Register'
 import InviteGroup from '@/components/layout/InviteGroup'
+import NewPassword from '@/components/layout/NewPassword'
+import ChangePassword from '@/components/layout/ChangePassword'
 
 Vue.use(Router);
 
@@ -80,6 +82,16 @@ export default new Router({
       path: '/invite/group/:inviteCode',
       name: 'InviteGroup',
       component: InviteGroup
+    },
+    {
+      path: '/newPassword',
+      name: 'newPassword',
+      component: NewPassword
+    },
+    {
+      path: '/changePassword',
+      name: 'changePassword',
+      component: ChangePassword
     },
   ],
   linkActiveClass: 'active'

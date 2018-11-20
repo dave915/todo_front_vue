@@ -35,7 +35,7 @@
         this.result = res;
       },
       goToMain() {
-        location.href = "/"
+        location.href = '/'
       }
     }
   }
