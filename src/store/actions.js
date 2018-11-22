@@ -52,6 +52,29 @@ export default {
         store.commit(constants.AUTH_USERINFO, res.data);
       });
   },
+  [constants.USER_SAVE]: (store, payload) => {
+    return api.user.saveUser(payload)
+      .then((res) => {
+        alert('유저정보가 변경 되었습니다.')
+        location.href = '/'
+      });
+  },
+  [constants.CHANGE_PASSWORD_MAIL]: (store, payload) => {
+    return api.user.sendChangePasswordMail(payload)
+      .then((res) => {
+        alert('메일을 확인 해 주세요.');
+      });
+  },
+  [constants.CHANGE_PASSWORD_USER]: (store, payload) => {
+    return api.user.getChnagePasswordUser(payload.changeCode)
+      .then((res) => {
+        payload.callBack(res.data)
+        },
+        (e) => {
+          alert('잘못된 링크입니다.')
+          location.href = '/'
+        })
+  },
   [constants.GROUP_ADD]: (store, payload) => {
     return api.group.addGroup(payload)
       .then((res) => {

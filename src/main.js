@@ -45,5 +45,5 @@ router.beforeEach((to, from, next) => {
 
 const passAuthCheckPath = (router) => {
   const path = router.path;
-  return path === '/login' || path === '/register'
+  return path.startsWith('/login') || path.startsWith('/register') || path.startsWith('/newPassword') || path.startsWith('/changePassword')
 };

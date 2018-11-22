@@ -24,7 +24,6 @@
       }
     },
     mounted() {
-      console.log(this.$route.params.inviteCode);
       this.$store.dispatch(constants.GROUP_INVITE_CHECK, {
         inviteCode: this.$route.params.inviteCode,
         callBack: this.updateResult

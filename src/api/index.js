@@ -33,6 +33,15 @@ export default {
   user: {
     searchUsers(payload) {
       return axios.get('/api/users', {params: {keyword: payload}})
+    },
+    saveUser(payload) {
+      return axios.put('/api/users', payload)
+    },
+    sendChangePasswordMail(payload) {
+      return axios.get('/api/users/password/mail', {params: {email: payload}})
+    },
+    getChnagePasswordUser(payload) {
+      return axios.get(`/api/users/password/${payload}`);
     }
   },
   group: {

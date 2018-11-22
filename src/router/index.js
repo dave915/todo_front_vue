@@ -89,7 +89,7 @@ export default new Router({
       component: NewPassword
     },
     {
-      path: '/changePassword',
+      path: '/changePassword/:passwordChangeCode',
       name: 'changePassword',
       component: ChangePassword
     },

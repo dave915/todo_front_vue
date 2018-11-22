@@ -10,8 +10,7 @@
   export default {
     name: 'App',
     mounted() {
-      this.$store.dispatch(constants.AUTH_USERINFO)
-        .catch(() => this.$router.push('login'))
+
     }
   }
 </script>

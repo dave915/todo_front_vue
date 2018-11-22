@@ -17,6 +17,7 @@
   import {mapState} from 'vuex'
   import BaseModal from "../modal/BaseModal";
   import ItemSideBar from "./components/ItemSideBar";
+  import constants from "../../store/constants";
 
   export default {
     name: "Base",
@@ -37,6 +38,8 @@
       Footer,
     },
     mounted() {
+      this.$store.dispatch(constants.AUTH_USERINFO)
+        .catch(() => this.$router.push('login'))
       // 빈페이지 다녀오고 트리메뉴가 동작 안하는 문제 때문에 임시로 넣음
       $(document).ready(() => {
         const trees = $('[data-widget="tree"]');
