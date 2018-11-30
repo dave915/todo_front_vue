@@ -71,7 +71,7 @@
         }
 
         this.trimData();
-        this.$store.dispatch(constants.AUTH_SIGNIN, this.userInfo)
+        this.$store.dispatch(constants.AUTH_SIGNUP, this.userInfo)
       },
       trimData() {
         this.userInfo.userName = this.userInfo.userName.trim();

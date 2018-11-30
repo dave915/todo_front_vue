@@ -17,8 +17,8 @@ const isAuthError = (status) => {
 
 export default {
   auth: {
-    signIn(payload) {
-      return axios.post('/api/signin', payload);
+    signUp(payload) {
+      return axios.post('/api/signup', payload);
     },
     login(payload) {
       return axios.post('/api/login', payload);

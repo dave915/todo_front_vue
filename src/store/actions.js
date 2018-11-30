@@ -22,8 +22,8 @@ export default {
   [constants.INIT_MODAL]: (store) => {
     store.commit(constants.INIT_MODAL);
   },
-  [constants.AUTH_SIGNIN]: (state, payload) => {
-    return api.auth.signIn(payload)
+  [constants.AUTH_SIGNUP]: (state, payload) => {
+    return api.auth.signUp(payload)
       .then((res) => {
         alert("회원가입 완료");
         router.push({path: 'login'});
@@ -43,7 +43,7 @@ export default {
     return api.auth.logout(payload)
       .then((res) => {
         store.commit(constants.AUTH_LOGOUT, res);
-        router.push({path: 'login'});
+        location.href = '/'
       });
   },
   [constants.AUTH_USERINFO]: (store, payload) => {
@@ -116,7 +116,7 @@ export default {
         console.log(res.data)
         alert('초대 완료되었습니다.');
       })
-      .catch((e) => alert('이미 그룹에 가입된 유저입니다.'));
+      .catch((e) => alert('이미 그룹에 가입된 유저이거나 존재하지 않는 이메일입니다.'));
   },
   [constants.GROUP_INVITE_CHECK]: (store, payload) => {
     return api.group.checkInvite(payload.inviteCode)

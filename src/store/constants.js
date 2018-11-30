@@ -6,7 +6,7 @@ export default {
   DRAG_ITEM: 'dragItem',
   SHOW_MODAL: 'showModal',
   INIT_MODAL: 'initModal',
-  AUTH_SIGNIN: 'auth/signin',
+  AUTH_SIGNUP: 'auth/signup',
   AUTH_LOGIN: 'auth/login',
   AUTH_LOGOUT: 'auth/logout',
   AUTH_USERINFO: 'auth/userInfo',
