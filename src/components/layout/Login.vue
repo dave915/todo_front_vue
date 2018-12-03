@@ -19,7 +19,7 @@
           <div class="row">
             <!-- /.col -->
             <div class="col-xs-4 pull-right">
-              <button class="btn btn-primary btn-block btn-flat" @click="login">Sign In</button>
+              <button class="btn btn-primary btn-block btn-flat" @click.prevent="login">Sign In</button>
             </div>
             <!-- /.col -->
           </div>
