@@ -15,7 +15,7 @@
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top">
       <!-- Sidebar toggle button-->
-      <a href="javascript:void(0)" class="sidebar-toggle" data-toggle="push-menu" role="button" @click="menuToggle">
+      <a href="javascript:void(0)" class="sidebar-toggle" data-toggle="push-menu" role="button" @click.prevent="menuToggle">
         <span class="sr-only">Toggle navigation</span>
       </a>
       <!-- Navbar Right Menu -->
@@ -23,7 +23,7 @@
         <ul class="nav navbar-nav">
           <!-- Notifications: style can be found in dropdown.less -->
           <li>
-            <a data-toggle="control-sidebar" @click="logout">
+            <a data-toggle="control-sidebar" @click.prevent="logout">
               <i class="fa fa-sign-out"></i>
             </a>
           </li>

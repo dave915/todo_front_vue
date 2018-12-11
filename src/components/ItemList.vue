@@ -4,7 +4,7 @@
       <h3 class="box-title">{{getStatusName(status)}}</h3>
       <div class="box-tools pull-right">
         <button type="button" class="btn btn-box-tool">
-          <i :class="minusBtn" @click="toggleBox"></i>
+          <i :class="minusBtn" @click.prevent="toggleBox"></i>
         </button>
       </div>
     </div>

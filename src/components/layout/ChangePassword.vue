@@ -20,7 +20,7 @@
           <div class="row">
             <!-- /.col -->
             <div class="col-xs-4 pull-right">
-              <button class="btn btn-primary btn-block btn-flat" @click="changePassword">변경</button>
+              <button class="btn btn-primary btn-block btn-flat" @click.prevent="changePassword">변경</button>
             </div>
             <!-- /.col -->
           </div>

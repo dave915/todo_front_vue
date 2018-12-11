@@ -33,10 +33,10 @@
    </div>
    <div class="modal-footer">
      <div class="col-md-6 pull-right" style="padding-right: 0">
-       <button class="btn  btn-default modal-default-button" @click="confirmBtnClicked">
+       <button class="btn  btn-default modal-default-button" @click.prevent="confirmBtnClicked">
          확인
        </button>
-       <button class="btn  btn-default modal-default-button" @click="closeModal()">
+       <button class="btn  btn-default modal-default-button" @click.prevent="closeModal()">
          취소
        </button>
      </div>

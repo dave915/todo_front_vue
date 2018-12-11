@@ -1,7 +1,7 @@
 <template>
   <footer class="main-footer footer">
     <div class="pull-left">
-      <button class="form-control" style="border-radius: 50px" @click="showAddItemModal()"><i class="fa fa-plus"></i></button>
+      <button class="form-control" style="border-radius: 50px" @click.prevent="showAddItemModal()"><i class="fa fa-plus"></i></button>
     </div>
     <div class="search">
       <div class="row">

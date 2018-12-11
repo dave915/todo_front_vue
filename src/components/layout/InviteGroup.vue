@@ -8,7 +8,7 @@
     <div class="login-box-body">
       <p class="login-box-msg" v-if="result === 'success'"><b>그룹 초대가 완료되었습니다.</b></p>
       <p class="login-box-msg" v-if="result === 'fail'"><b>오류가 발생하였거나, 만료된 링크입니다.</b></p>
-      <a href="javascript:void(0)" @click="goToMain">메인으로 이동하기</a>
+      <a href="javascript:void(0)" @click.prevent="goToMain">메인으로 이동하기</a>
     </div>
   </div>
 </template>

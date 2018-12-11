@@ -15,7 +15,7 @@
         <div class="row">
           <!-- /.col -->
           <div class="col-xs-4 pull-right">
-            <button class="btn btn-primary btn-block btn-flat" @click="sendMail">재설정</button>
+            <button class="btn btn-primary btn-block btn-flat" @click.prevent="sendMail">재설정</button>
           </div>
           <!-- /.col -->
         </div>

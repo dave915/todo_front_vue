@@ -32,7 +32,7 @@
           </div>
           <!-- /.col -->
           <div class="col-xs-4">
-            <button class="btn btn-primary btn-block btn-flat" @click="register">Register</button>
+            <button class="btn btn-primary btn-block btn-flat" @click.prevent="register">Register</button>
           </div>
           <!-- /.col -->
         </div>

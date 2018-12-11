@@ -4,7 +4,7 @@
     <div style="width: 290px; padding: 10px 5px 10px 10px;">
       <div class="row">
         <div class="col-md-12">
-          <span @click="closeItemSide"><i class="fa fa-arrow-right"></i></span>
+          <span @click.prevent="closeItemSide"><i class="fa fa-arrow-right"></i></span>
         </div>
       </div>
       <div class="row division"></div>

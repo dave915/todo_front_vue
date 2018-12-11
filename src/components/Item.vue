@@ -1,5 +1,5 @@
 <template>
-  <div @click="toggleDetail">
+  <div @click.prevent="toggleDetail">
     <!-- drag handle -->
     <span class="handle">
       <i class="fa fa-ellipsis-v"></i>

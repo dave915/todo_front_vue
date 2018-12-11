@@ -10,7 +10,7 @@
            <input type="text" placeholder="그룹명" class="form-control" v-model="groupName">
          </div>
          <div class="col-md-2">
-           <button class="btn btn-default" v-if="groupName !== groupInfo.name" @click="updateGroup"> 수정 </button>
+           <button class="btn btn-default" v-if="groupName !== groupInfo.name" @click.prevent="updateGroup"> 수정 </button>
            <button class="btn btn-default" disabled v-else> 수정 </button>
          </div>
        </div>
@@ -27,20 +27,20 @@
          <input type="text" placeholder="유저 이메일 또는 유저명" class="form-control" id="searchUser" data-toggle="dropdown" v-model="searchKeyword">
          <ul class="dropdown-menu col-md-12" role="menu" aria-labelledby="searchUser" v-if="searchUsers.length > 0">
            <li role="presentation" v-for="user in searchUsers">
-             <a role="menuitem" tabindex="-1" href="javascript:void(0)" @click="userSelected(user)"> {{user.email}} ({{user.userName}})</a>
+             <a role="menuitem" tabindex="-1" href="javascript:void(0)" @click.prevent="userSelected(user)"> {{user.email}} ({{user.userName}})</a>
            </li>
          </ul>
        </div>
        <div class="col-md-2">
-         <button class="btn btn-default" @click="inviteUser"> 초대 </button>
+         <button class="btn btn-default" @click.prevent="inviteUser"> 초대 </button>
        </div>
      </div>
      <div class="row" style="margin-top: 10px">
        <div class="user-box col-md-12">
          <div class="user-list col-md-12" v-for="user in groupJoinUserList">
            <span>{{user.email}} {{user.userName}} </span>
-           <label class="label bg-red label-btn" v-if="isOwner && auth.idx !== user.idx" @click="banishGroupUser(user)">삭제</label>
-           <label class="label bg-green label-btn" v-if="isOwner && auth.idx !== user.idx && user.type === 2" @click="changeOwner(user)">소유권 넘기기</label>
+           <label class="label bg-red label-btn" v-if="isOwner && auth.idx !== user.idx" @click.prevent="banishGroupUser(user)">삭제</label>
+           <label class="label bg-green label-btn" v-if="isOwner && auth.idx !== user.idx && user.type === 2" @click.prevent="changeOwner(user)">소유권 넘기기</label>
            <label class="label bg-blue label-btn" v-if="isOwner && auth.idx !== user.idx && user.type === 3">승인 대기중</label>
          </div>
        </div>
@@ -48,7 +48,7 @@
    </div>
    <div class="modal-footer">
      <div class="col-md-6 pull-right" style="padding-right: 0">
-         <button class="btn btn-default modal-default-button" @click="closeModal()">
+         <button class="btn btn-default modal-default-button" @click.prevent="closeModal()">
            닫기
          </button>
      </div>
