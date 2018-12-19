@@ -92,7 +92,7 @@
         const duration = Math.floor(moment.duration(today.diff(itemDate)).asDays());
 
         if(duration < 0)
-          return `D-${duration}`;
+          return `D-${duration * -1}`;
         else if(duration === 0)
           return `D-Day`;
         else if(duration > 0)
