@@ -59,6 +59,9 @@ export default {
         location.href = '/'
       });
   },
+  [constants.USER_CHECK_EMAIL]: (store, payload) => {
+    return api.user.checkEmail(payload)
+  },
   [constants.CHANGE_PASSWORD_MAIL]: (store, payload) => {
     return api.user.sendChangePasswordMail(payload)
       .then((res) => {

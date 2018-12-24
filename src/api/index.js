@@ -38,10 +38,13 @@ export default {
       return axios.put('/api/users', payload)
     },
     sendChangePasswordMail(payload) {
-      return axios.get('/api/temp/users/password/mail', {params: {email: payload}})
+      return axios.get('/api/users/password/mail', {params: {email: payload}})
     },
     getChnagePasswordUser(payload) {
       return axios.get(`/api/users/password/${payload}`);
+    },
+    checkEmail(payload) {
+      return axios.get('/api/users/email', {params: {email: payload}})
     }
   },
   group: {
@@ -61,7 +64,7 @@ export default {
       return axios.get(`/api/group/${payload}/users`);
     },
     inviteUser(payload) {
-      return axios.post(`/api/temp/group/invite/${payload.groupIdx}/${payload.userIdx}`);
+      return axios.post(`/api/group/invite/${payload.groupIdx}/${payload.userIdx}`);
     },
     checkInvite(payload) {
       return axios.get(`/api/group/invite/${payload}`);

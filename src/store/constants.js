@@ -11,6 +11,7 @@ export default {
   AUTH_LOGOUT: 'auth/logout',
   AUTH_USERINFO: 'auth/userInfo',
   USER_SAVE: 'user/save',
+  USER_CHECK_EMAIL: 'user/check/email',
   CHANGE_PASSWORD_MAIL: 'change/password/mail',
   CHANGE_PASSWORD_USER: 'change/password/user',
   GROUP_ADD: 'group/add',

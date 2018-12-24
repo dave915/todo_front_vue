@@ -75,9 +75,15 @@
           alert('이메일 형식이 맞지 않습니다.');
           return;
         }
-        
+
         this.trimData();
-        this.$store.dispatch(constants.AUTH_SIGNUP, this.userInfo)
+        this.$store.dispatch(constants.USER_CHECK_EMAIL, this.userInfo.email)
+          .then((res) => {
+            if(res.data.length < 1)
+              this.$store.dispatch(constants.AUTH_SIGNUP, this.userInfo);
+            else
+              alert("이미 사용중인 email 입니다.")
+          })
       },
       trimData() {
         this.userInfo.userName = this.userInfo.userName.trim();
