@@ -70,6 +70,12 @@
           return;
         }
 
+        const emailCheck = /^[A-Za-z0-9_\.\-]+@[A-Za-z0-9\-]+\.[A-Za-z0-9\-]+/;
+        if(!emailCheck.test(this.userInfo.email)) {
+          alert('이메일 형식이 맞지 않습니다.');
+          return;
+        }
+        
         this.trimData();
         this.$store.dispatch(constants.AUTH_SIGNUP, this.userInfo)
       },
